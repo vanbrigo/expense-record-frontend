@@ -1,9 +1,10 @@
+import { Container } from "react-bootstrap"
 import "./Header.css"
 
 export const Header=()=>{
     return(
-        <div className="headerDesign">
-            
-        </div>
+        <Container fluid className="headerDesign">
+            <div className="logoHeader"></div>
+        </Container>
     )
 }
