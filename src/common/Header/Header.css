@@ -1,9 +1,32 @@
 .headerDesign{
     height: 14vh;
     width: 100vw;
-    background-color: rgb(125, 103, 164);
+    background-color: rgb(255, 255, 255);
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
+
+.logoHeader{
+    height: 14vh;
+    width: 20vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/images/xpenses-logo-horizontal.png);
+}
+
+.headerBox{
+    height: 14vh;
+    width:80vw ;
+    background-color: rgb(255, 255, 255);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap:1em;
+    margin: 1em;    
+}
+

@@ -1,0 +1,7 @@
+.headerButtonDesign{
+    font-size: 1.4em;
+}
+
+.headerButtonDesign:hover{
+    cursor: pointer;
+}
