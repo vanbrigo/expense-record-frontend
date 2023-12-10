@@ -8,11 +8,11 @@ export const Header=()=>{
             <div className="logoHeader"></div>
             <div className="headerBox">
             <HeaderButton 
-            path='/'
+            path='/register'
             title='SIGN IN'
             />
             <HeaderButton 
-            path='/'
+            path='/login'
             title='LOG IN'
             />
             </div>
