@@ -16,7 +16,7 @@ export const Login=()=>{
         email:'',
         password:''
     })
-    const [credencialesError,setCredencialesError] =useState({
+    const [credentialsError,setCredentialsError] =useState({
         emailError:"",
         passwordError:""
     })
@@ -30,7 +30,7 @@ export const Login=()=>{
         let error = "";
         error = validator(e.target.name, e.target.value);
     
-        setCredencialesError((prevState) => ({
+        setCredentialsError((prevState) => ({
             ...prevState,
             [e.target.name + 'Error']: error,
         }));
@@ -49,23 +49,23 @@ export const Login=()=>{
         <CustomInput
           name={"email"}
           type={"email"}
-          style={`loginInputDesign ${credencialesError.emailError !== "" ? "inputError" : ""}`}
+          style={`loginInputDesign ${credentialsError.emailError !== "" ? "inputError" : ""}`}
           lenght={"30"}
           placeholder={"email"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
-        <div className="errorText">{credencialesError.emailError}</div>
+        <div className="errorText">{credentialsError.emailError}</div>
         <CustomInput
           name={"password"}
           type={"password"}
-          style={`loginInputDesign ${credencialesError.passwordError !== "" ? "inputError" : ""}`}
+          style={`loginInputDesign ${credentialsError.passwordError !== "" ? "inputError" : ""}`}
           lenght={"12"}
           placeholder={"password"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
-        <div className="errorText">{credencialesError.passwordError}</div>
+        <div className="errorText">{credentialsError.passwordError}</div>
         <CustomButton
             style={"loginButton"}
             functionToDo={logIn}
