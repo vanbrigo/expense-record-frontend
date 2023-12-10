@@ -1,6 +1,6 @@
-import './CustumButton.css'
+import './CustomButton.css'
 
-export const CustumButton=({style,functionToDo,title})=>{
+export const CustomButton=({style,functionToDo,title})=>{
     return(<div 
         className={style} 
         onClick={()=>functionToDo()}>

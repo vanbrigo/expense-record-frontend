@@ -5,9 +5,13 @@ import { useDispatch } from 'react-redux'
 import { CustomInput } from '../../common/CustomInput/CustomInput'
 import { validator } from '../../services/validations'
 import { login, userData } from "../userSlice"
+import { CustomButton } from '../../common/CustomButton/CustomButton'
+import { logUser } from '../../services/apiCalls'
+import { useNavigate } from 'react-router-dom'
 
 export const Login=()=>{
     const dispatch = useDispatch()
+    const navigate=useNavigate()
     const [credentials, setCredentials]=useState({
         email:'',
         password:''
@@ -17,7 +21,7 @@ export const Login=()=>{
         passwordError:""
     })
     const functionHandler = (e) => {
-        setCredenciales((prevState)=>({
+        setCredentials((prevState)=>({
             ...prevState,
             [e.target.name]:e.target.value
         }))
@@ -62,6 +66,11 @@ export const Login=()=>{
           functionCheck={errorCheck}
         />
         <div className="errorText">{credencialesError.passwordError}</div>
+        <CustomButton
+            style={"loginButton"}
+            functionToDo={logIn}
+            title={"Log in"}
+            />
       </Container>
     );
 }

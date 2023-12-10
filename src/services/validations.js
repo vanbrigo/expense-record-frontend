@@ -32,22 +32,22 @@ export const validator = (type, value) => {
                 return "";
             }
 
-        case 'password':
-        case 'password2':
-        case 'contraseña':
+        // case 'password':
+        // case 'password2':
+        // case 'contraseña':
 
-            if(value.length < 6){
-                return "Write 6 characters at least"
-            } else {
+        //     if(value.length < 6){
+        //         return "Write 6 characters at least"
+        //     } else {
 
-                //Checking the password format....
+        //         //Checking the password format....
 
-                if (! /^(?=.*[A-Z])(?=.*\d).{6,12}$/.test(value) ) {
-                    return "Invalid password format";
-                } else {
-                    return "";
-                }
-            }
+        //         if (! /^(?=.*[A-Z])(?=.*\d).{6,12}$/.test(value) ) {
+        //             return "Invalid password format";
+        //         } else {
+        //             return "";
+        //         }
+        //     }
 
 
     }
