@@ -1,0 +1,32 @@
+
+.newExpenseDesign{
+    height: 86vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+.categoriesDesign{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:1em;
+    height: 20em;
+    width: 20em;
+}
+.categoryBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 5em;
+    width: 5em;
+}
+.categoryBox:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.categoryIcon{
+    height: 3em;
+    width: 3em;
+}
