@@ -14,6 +14,12 @@ export const registerUser = async(body)=>{
     return await axios.post(`${host}/api/register`,body)
 }
 
-export const addExpense = async(body)=>{
-    return await axios.post(`${host}/api/new-expense`,body)
+export const addExpense = async(body,token)=>{
+    return await axios.post(`${host}/api/new-expense`,body,{headers:{Authorization:`Bearer ${token}`,Accept:'application/json'}})
+}
+
+export const addIncome = async(body,token)=>{
+    console.log(body)
+    console.log(token)
+    return await axios.post(`${host}/api/new-income`,body,{headers:{Authorization:`Bearer ${token}`}})
 }

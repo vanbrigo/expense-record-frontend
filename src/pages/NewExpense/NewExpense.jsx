@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './NewExpense.css'
 import { Container } from 'react-bootstrap'
-import { getAllExpensesCategories } from '../../services/apiCalls'
+import { addExpense, getAllExpensesCategories } from '../../services/apiCalls'
 import { CustomNumberInput } from '../../common/CustomNumberInput/CustomNumberInput'
 import { CustomInput } from '../../common/CustomInput/CustomInput'
 import { validator } from '../../services/validations'
@@ -56,7 +56,7 @@ export const NewExpense=()=>{
             [e.target.name + 'Error']: error,
         }));
       }
-    const addExpense=()=>{
+    const addExpenseFunction=()=>{
         addExpense(expenseDetails,token)
         .then(result=>console.log(result))
         .catch(error=>console.log(error))
@@ -133,7 +133,7 @@ export const NewExpense=()=>{
             />
             <CustomButton 
             style={"addButton"}
-            functionToDo={addExpense}
+            functionToDo={addExpenseFunction}
             title={"Add"}
             />
         </div>
