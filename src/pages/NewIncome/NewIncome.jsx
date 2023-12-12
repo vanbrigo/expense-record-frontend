@@ -31,7 +31,7 @@ export const NewIncome=()=>{
         .cath(error=>console.log(error)) 
     }
 
-    return(<Container fluid>
+    return(<Container fluid className='newIncomeDesign'>
         {
             categories.length > 0
             ?(<div className='categoriesIncomeDesign'>
