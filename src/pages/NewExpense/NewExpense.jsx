@@ -34,7 +34,7 @@ export const NewExpense=()=>{
     }
     useEffect(()=>{
         if(categories.length === 0){
-            getAllExpensesCategories()
+            getAllExpensesCategories(token)
             .then(result=> {
                 setCategories(result.data.data)
             })

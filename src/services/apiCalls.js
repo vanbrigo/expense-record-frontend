@@ -2,8 +2,12 @@ import axios from 'axios'
 
 const host='http://localhost:8000'
 
-export const getAllExpensesCategories = async()=>{
-    return await axios.get(`${host}/api/categories-expenses`)
+export const getAllExpensesCategories = async(token)=>{
+    return await axios.get(`${host}/api/categories-expenses`,{headers:{Authorization:`Bearer ${token}`}})
+}
+
+export const getAllIncomesCategories = async(token)=>{
+    return await axios.get(`${host}/api/categories-incomes`,{headers:{Authorization:`Bearer ${token}`}})
 }
 
 export const logUser = async(body)=>{
