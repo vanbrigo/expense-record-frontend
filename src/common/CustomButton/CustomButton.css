@@ -1,0 +1,7 @@
+.addButton{
+    height: 2em;
+    width: 4em;
+    background-color: cadetblue;
+    border-radius: 1.5em;
+    font-weight: 600;
+}

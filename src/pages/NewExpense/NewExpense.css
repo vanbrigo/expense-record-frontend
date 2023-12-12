@@ -41,12 +41,13 @@
     background-color: azure;
 }
 .descriptionBox{
-    height: 3em;
+    height: 5em;
     width: 15em;
-    background-color: azure;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:0.5em;
 }
 .payMethodBox{
     display: flex;

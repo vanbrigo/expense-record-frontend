@@ -4,6 +4,11 @@ import { useEffect, useState } from 'react'
 import { addIncome, getAllIncomesCategories } from '../../services/apiCalls'
 import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
+import { validator } from '../../services/validations'
+import { CustomNumberInput } from '../../common/CustomNumberInput/CustomNumberInput'
+import { CustomInput } from '../../common/CustomInput/CustomInput'
+import { CustomButton } from '../../common/CustomButton/CustomButton'
+import dayjs from 'dayjs'
 
 export const NewIncome=()=>{
     const rdxCredentials=useSelector(userData)
@@ -15,8 +20,16 @@ export const NewIncome=()=>{
         description:'',
         date:''
     })
-
-
+    const [incomeDetailsError,setIncomeDetailsError]=useState({
+        descriptionError:''
+    })
+    const functionHandler = (e) => {
+        setIncomeDetails((prevState)=>({
+            ...prevState,
+            [e.target.name]:e.target.value 
+        }))
+        console.log(e.target.value)
+    }
     useEffect(()=>{
         if(categories.length === 0){
             getAllIncomesCategories(token)
@@ -24,14 +37,47 @@ export const NewIncome=()=>{
             .catch(error=>console.log(error))
         }
     },[categories])
+
+    const errorCheck = (e) => {
+        let error = "";
+        error = validator(e.target.name, e.target.value);
     
+        setIncomeDetailsError((prevState) => ({
+            ...prevState,
+            [e.target.name + 'Error']: error,
+        }));
+      }
     const addIncomeFunction=()=>{
         addIncome(incomeDetails,token)
         .then(results=>console.log(results))
-        .cath(error=>console.log(error)) 
+        .catch(error=>console.log(error)) 
     }
 
     return(<Container fluid className='newIncomeDesign'>
+        <div className='dateBox'>
+        {incomeDetails.date==''
+        ?(<>Select a date</>)
+        :(<>{dayjs(incomeDetails.date).format('MMMM-DD-YYYY')}</>)}
+        <input
+         name='date'
+         type='date'
+         className='inputDate'
+         onChange={(e)=>functionHandler(e)}
+         />
+        </div>
+        <div className='incomeInputBox'>
+        <img width="32" 
+        height="32" 
+        src="https://img.icons8.com/windows/32/1A1A1A/euro-pound-exchange.png" 
+        alt="euro-pound-exchange"/>
+        <CustomNumberInput
+        name={'amount'}
+        style={'incomeInput'}
+        max={'100000'}
+        placeholder={'insert amount'}
+        functionProp={functionHandler}
+        />
+        </div>
         {
             categories.length > 0
             ?(<div className='categoriesIncomeDesign'>
@@ -44,5 +90,21 @@ export const NewIncome=()=>{
             </div>)
             :(<>Nothing here</>)
         }
+        <div className='descriptionBox'>
+            <CustomInput
+            name={"description"}
+            type={"text"}
+            style={'descriptionInput'}
+            lenght={"50"}
+            placeholder={"description"}
+            functionProp={functionHandler}
+            functionCheck={errorCheck}
+            />
+            <CustomButton
+            style={"addButton"}
+            functionToDo={addIncomeFunction}
+            title={"Add"}
+            />
+        </div>
     </Container>)
 }
