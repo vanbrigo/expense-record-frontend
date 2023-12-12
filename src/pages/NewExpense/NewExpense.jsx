@@ -64,7 +64,17 @@ export const NewExpense=()=>{
 
     return(
     <Container fluid className='newExpenseDesign'>
-        <div>{todayDate}</div>
+        <div>
+        {expenseDetails.date==''
+        ?(<>{dayjs(todayDate).format('MMMM-DD-YYYY')}</>)
+        :(<>{dayjs(expenseDetails.date).format('MMMM-DD-YYYY')}</>)}
+        <input
+         name='date'
+         type='date'
+         className='inputDate'
+         onChange={(e)=>functionHandler(e)}
+         />
+        </div>
         <div className='expenseInputBox'>
         <CustomNumberInput
         name={'amount'}
