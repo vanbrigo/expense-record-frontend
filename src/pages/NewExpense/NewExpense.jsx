@@ -6,10 +6,15 @@ import { CustomNumberInput } from '../../common/CustomNumberInput/CustomNumberIn
 import { CustomInput } from '../../common/CustomInput/CustomInput'
 import { validator } from '../../services/validations'
 import dayjs from 'dayjs'
+import { CustomButton } from '../../common/CustomButton/CustomButton'
+import { useSelector } from 'react-redux'
+import { userData } from '../userSlice'
 
 export const NewExpense=()=>{
     const [todayDate,setTodayDate]=useState('')
     const[categories,setCategories]=useState([])
+    const rdxCredentials=useSelector(userData)
+    const token=rdxCredentials.credentials.data.token
     const[expenseDetails, setExpenseDetails]=useState({
         amount:'',
         category_id:'',
@@ -23,8 +28,9 @@ export const NewExpense=()=>{
     const functionHandler = (e) => {
         setExpenseDetails((prevState)=>({
             ...prevState,
-            [e.target.name]:e.target.value
+            [e.target.name]:e.target.value 
         }))
+        console.log(e.target.value)
     }
     useEffect(()=>{
         if(categories.length === 0){
@@ -50,6 +56,11 @@ export const NewExpense=()=>{
             [e.target.name + 'Error']: error,
         }));
       }
+    const addExpense=()=>{
+        addExpense(expenseDetails,token)
+        .then(result=>console.log(result))
+        .catch(error=>console.log(error))
+    }
 
     return(
     <Container fluid className='newExpenseDesign'>
@@ -64,8 +75,20 @@ export const NewExpense=()=>{
         />
         </div>
         <div className='payMethodBox'>
-        <img className='payMethodImage' width="50" height="50" src="https://img.icons8.com/ios/50/bank-card-back-side--v1.png" alt="bank-card-back-side--v1"/>
-        <img className='payMethodImage' width="50" height="50" src="https://img.icons8.com/ios/50/banknotes.png" alt="banknotes"/>
+        <img 
+        className='payMethodImage' 
+        width="50" 
+        height="50" 
+        src="https://img.icons8.com/ios/50/bank-card-back-side--v1.png" 
+        alt="bank-card-back-side--v1"
+        onClick={()=>functionHandler({target:{name:'pay_method_id',value:2}})}/>
+        <img 
+        className='payMethodImage' 
+        width="50" 
+        height="50" 
+        src="https://img.icons8.com/ios/50/banknotes.png" 
+        alt="banknotes"
+        onClick={()=>functionHandler({target:{name:'pay_method_id',value:1}})}/>
         </div>
         <div>
             {categories.length > 0
@@ -74,8 +97,8 @@ export const NewExpense=()=>{
                 categories.map(
                     category =>{
                         return(
-                            <div key={category.id} value={category.id} className='categoryBox'>
-                                <img src={category.icon_url} className='categoryIcon'></img>
+                            <div key={category.id} className='categoryBox' onClick={()=>functionHandler({target:{name:'category_id', value:category.id}})}>
+                                <img src={category.icon_url} alt={category.name} className='categoryIcon'></img>
                                 {category.name}
                             </div>
                         )
@@ -97,6 +120,11 @@ export const NewExpense=()=>{
             placeholder={"description"}
             functionProp={functionHandler}
             functionCheck={errorCheck}
+            />
+            <CustomButton 
+            style={"addButton"}
+            functionToDo={addExpense}
+            title={"Add"}
             />
         </div>
     </Container>

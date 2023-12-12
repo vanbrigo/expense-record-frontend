@@ -13,3 +13,7 @@ export const logUser = async(body)=>{
 export const registerUser = async(body)=>{
     return await axios.post(`${host}/api/register`,body)
 }
+
+export const addExpense = async(body)=>{
+    return await axios.post(`${host}/api/new-expense`,body)
+}
