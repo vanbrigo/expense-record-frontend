@@ -66,7 +66,7 @@ export const NewExpense=()=>{
     <Container fluid className='newExpenseDesign'>
         <div>
         {expenseDetails.date==''
-        ?(<>{dayjs(todayDate).format('MMMM-DD-YYYY')}</>)
+        ?(<>Select a date</>)
         :(<>{dayjs(expenseDetails.date).format('MMMM-DD-YYYY')}</>)}
         <input
          name='date'
