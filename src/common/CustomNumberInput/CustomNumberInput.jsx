@@ -1,6 +1,6 @@
 import './CustomNumberInput.css'
 
-export const CustomNumberInput=({name,style,max,placeholder,functionProp,functionCheck})=>{
+export const CustomNumberInput=({name,style,max,placeholder,functionProp})=>{
     return(
     <input
          name={name}
@@ -10,6 +10,5 @@ export const CustomNumberInput=({name,style,max,placeholder,functionProp,functio
          max={max}
          placeholder={placeholder}
          onChange={(e)=>functionProp(e)}
-         onBlur={(e)=>functionCheck(e)}
     />)
 }
