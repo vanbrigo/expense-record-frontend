@@ -10,6 +10,10 @@ export const getAllIncomesCategories = async(token)=>{
     return await axios.get(`${host}/api/categories-incomes`,{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const getAllExpensesByDate = async(month,year,token)=>{
+    return await axios.get(`${host}/api/expenses?month=${month}&year=${year}`,{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const logUser = async(body)=>{
     return await axios.post(`${host}/api/login`,body)
 }
