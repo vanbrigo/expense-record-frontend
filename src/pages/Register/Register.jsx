@@ -5,8 +5,10 @@ import { CustomInput } from '../../common/CustomInput/CustomInput'
 import { validator } from '../../services/validations'
 import { registerUser } from '../../services/apiCalls'
 import { CustomButton } from '../../common/CustomButton/CustomButton'
+import { useNavigate } from 'react-router-dom'
 
 export const Register=()=>{
+    const navigate=useNavigate()
     const [credentials, setCredentials]=useState({
         nickname:'',
         email:'',
@@ -42,7 +44,9 @@ export const Register=()=>{
         .catch(error=> console.log(error))
     }
     return(
-        <Container fluid>
+        <Container fluid className='registerDesign'>
+        <div className='registerBox'>
+            <span>Have an account? <span className='loginHereText' onClick={()=>navigate('/login')}>Login here!</span></span>
         <CustomInput
           name={"nickname"}
           type={"nickname"}
@@ -58,7 +62,7 @@ export const Register=()=>{
           type={"email"}
           style={`loginInputDesign ${credentialsError.emailError !== "" ? "inputError" : ""}`}
           lenght={"30"}
-          placeholder={"email"}
+          placeholder={"email address"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
@@ -78,6 +82,7 @@ export const Register=()=>{
             functionToDo={signIn}
             title={"Sign up"}
             />
+        </div>
         </Container>
     )
 }

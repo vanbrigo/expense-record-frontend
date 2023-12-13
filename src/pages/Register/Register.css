@@ -1,0 +1,22 @@
+.registerDesign{
+    height: 86vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.registerBox{
+    height: 30em;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap:1em
+}
+.loginHereText{
+    color:green
+}
+.loginHereText:hover{
+    cursor: pointer;
+}
