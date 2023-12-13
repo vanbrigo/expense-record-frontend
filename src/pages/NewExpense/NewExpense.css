@@ -13,10 +13,9 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     height: 23em;
-    width: 26em;
+    width: 30em;
     gap:1em;
     margin-top: 0.5em;
-    background-color: aliceblue;
 }
 .categoryBox{
     display: flex;
@@ -25,20 +24,20 @@
     align-items: center;
     height: 5em;
     width: 5em; 
-    background-color: blue; 
 }
 .categoryBox:hover{
     cursor: pointer;
     transform: scale(1.1);
 }
 .categoryIcon{
-    height: 3em;
-    width: 3em;
+    height: 2em;
+    width: 2em;
 }
 .expenseInputBox{
-    height: 3em;
-    width: 20em;
-    background-color: azure;
+    height: 2em;
+    width: 14em;
+    display: flex;
+    justify-content: flex-start;
 }
 .descriptionBox{
     height: 5em;
@@ -55,7 +54,7 @@
     align-items: center;
     height: 2.5em;
     width: 8em;
-    background-color: antiquewhite;
+    background-color: rgb(239, 237, 236);
     border-radius: 2em;
 }
 .payMethodImage{
@@ -69,4 +68,8 @@
 .inputDate{
     height: 1.5em;
     width: 1.5em;
+}
+.inputDate:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }

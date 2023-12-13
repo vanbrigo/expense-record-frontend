@@ -64,7 +64,7 @@ export const NewExpense=()=>{
 
     return(
     <Container fluid className='newExpenseDesign'>
-        <div>
+        <div className='dateBox'>
         {expenseDetails.date==''
         ?(<>Select a date</>)
         :(<>{dayjs(expenseDetails.date).format('MMMM-DD-YYYY')}</>)}
@@ -76,6 +76,10 @@ export const NewExpense=()=>{
          />
         </div>
         <div className='expenseInputBox'>
+        <img width="32" 
+        height="32" 
+        src="https://img.icons8.com/windows/32/1A1A1A/euro-pound-exchange.png" 
+        alt="euro-pound-exchange"/>
         <CustomNumberInput
         name={'amount'}
         style={'expenseInput'}

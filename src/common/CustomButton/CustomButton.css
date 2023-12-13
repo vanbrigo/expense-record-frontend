@@ -1,7 +1,11 @@
 .addButton{
     height: 2em;
     width: 4em;
-    background-color: cadetblue;
+    background-color:rgb(26, 185, 132);
     border-radius: 1.5em;
     font-weight: 600;
+}
+.addButton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
