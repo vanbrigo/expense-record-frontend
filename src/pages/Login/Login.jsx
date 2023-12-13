@@ -48,7 +48,7 @@ export const Login=()=>{
       <Container fluid className='loginDesign'>
         <div className='loginBox'>
             <span className='loginName'>Login to Xpenses</span>
-            <span>Don't have an account yet? Sign Up here!</span>
+            <span>Don't have an account yet? <span className='signUpHereText' onClick={()=>navigate('/register')}>Sign Up here!</span></span>
         <CustomInput
           name={"email"}
           type={"email"}
