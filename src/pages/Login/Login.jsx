@@ -45,13 +45,16 @@ export const Login=()=>{
         .catch(error=> console.log(error))
     }
     return (
-      <Container fluid>
+      <Container fluid className='loginDesign'>
+        <div className='loginBox'>
+            <span className='loginName'>Login to Xpenses</span>
+            <span>Don't have an account yet? Sign Up here!</span>
         <CustomInput
           name={"email"}
           type={"email"}
           style={`loginInputDesign ${credentialsError.emailError !== "" ? "inputError" : ""}`}
           lenght={"30"}
-          placeholder={"email"}
+          placeholder={"email address"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
@@ -71,6 +74,7 @@ export const Login=()=>{
             functionToDo={logIn}
             title={"Log in"}
             />
+        </div>
       </Container>
     );
 }
