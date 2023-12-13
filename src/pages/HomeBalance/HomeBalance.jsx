@@ -33,7 +33,8 @@ export const HomeBalance=()=>{
                     {expenses.map(expense=>{
                         return(
                         <div key={expense.id}>
-                            {expense.category_id}
+                            {expense.category.name}
+                            {expense.amount}
                         </div>)
                         
                     })}
