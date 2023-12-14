@@ -5,10 +5,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: aquamarine;
     gap:2em;
 }
-
 .categoriesIncomeDesign{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -35,12 +33,13 @@
     width: 3em;
 }
 .dateBox{
+    display: flex;
+    justify-content: center;
     margin-top: 1em;
     height: 2em;
-    width: 13em;
-    /* background-color: azure; */
+    width: 12em;
     display: flex;
-    gap:1em
+    gap:1em;
 }
 .incomeInput{
     height: 2em;
