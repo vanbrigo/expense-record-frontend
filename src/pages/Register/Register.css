@@ -3,20 +3,25 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .registerBox{
-    height: 30em;
+    height: 25em;
     width: 30em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap:1em
+    gap:1em;
+    margin-top: 3em;
 }
 .loginHereText{
     color:green
 }
 .loginHereText:hover{
     cursor: pointer;
+}
+.registerName{
+    font-size: 2em;
+    margin: 1em;
 }

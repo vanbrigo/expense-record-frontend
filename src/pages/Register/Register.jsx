@@ -46,13 +46,14 @@ export const Register=()=>{
     return(
         <Container fluid className='registerDesign'>
         <div className='registerBox'>
+            <span className='registerName'>Sign up to <span className='xpensesName'>Xpenses</span></span>
             <span>Have an account? <span className='loginHereText' onClick={()=>navigate('/login')}>Login here!</span></span>
         <CustomInput
           name={"nickname"}
           type={"nickname"}
           style={`loginInputDesign ${credentialsError.nicknameError !== "" ? "inputError" : ""}`}
           lenght={"30"}
-          placeholder={"nickname"}
+          placeholder={"Nickname"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
@@ -62,7 +63,7 @@ export const Register=()=>{
           type={"email"}
           style={`loginInputDesign ${credentialsError.emailError !== "" ? "inputError" : ""}`}
           lenght={"30"}
-          placeholder={"email address"}
+          placeholder={"Email address"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
@@ -72,7 +73,7 @@ export const Register=()=>{
           type={"password"}
           style={`loginInputDesign ${credentialsError.passwordError !== "" ? "inputError" : ""}`}
           lenght={"30"}
-          placeholder={"password"}
+          placeholder={"Password"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />

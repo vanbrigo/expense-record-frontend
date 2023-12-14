@@ -3,8 +3,7 @@
     height: 86vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: rgb(69, 195, 195);
+    align-items: flex-start;
 }
 
 .loginBox{
@@ -15,15 +14,18 @@
     align-items: center;
     flex-direction: column;
     gap:1em;
-    background-color: rgb(248, 248, 247);
+    margin-top: 3em;
 }
 .loginName{
     font-size: 2em;
-    margin: 1.5em;
+    margin: 1em;
 }
 .signUpHereText{
     color:green
 }
 .signUpHereText:hover{
     cursor: pointer;
+}
+.xpensesName{
+    font-weight: 800;
 }

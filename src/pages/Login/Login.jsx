@@ -47,14 +47,14 @@ export const Login=()=>{
     return (
       <Container fluid className='loginDesign'>
         <div className='loginBox'>
-            <span className='loginName'>Login to Xpenses</span>
+            <span className='loginName'>Login to <span className='xpensesName'>Xpenses</span></span>
             <span>Don't have an account yet? <span className='signUpHereText' onClick={()=>navigate('/register')}>Sign Up here!</span></span>
         <CustomInput
           name={"email"}
           type={"email"}
           style={`loginInputDesign ${credentialsError.emailError !== "" ? "inputError" : ""}`}
           lenght={"30"}
-          placeholder={"email address"}
+          placeholder={"Email address"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
@@ -64,7 +64,7 @@ export const Login=()=>{
           type={"password"}
           style={`loginInputDesign ${credentialsError.passwordError !== "" ? "inputError" : ""}`}
           lenght={"12"}
-          placeholder={"password"}
+          placeholder={"Password"}
           functionProp={functionHandler}
           functionCheck={errorCheck}
         />
