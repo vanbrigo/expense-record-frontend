@@ -9,7 +9,6 @@
     margin: 0;
     padding: 0;
 }
-
 .logoHeader{
     height: 14vh;
     width: 20vw;
@@ -17,7 +16,9 @@
     background-repeat: no-repeat;
     background-image: url(../../assets/images/xpenses-logo-horizontal.png);
 }
-
+.logoHeader:hover{
+    cursor: pointer;
+}
 .headerBox{
     height: 14vh;
     width:80vw ;
