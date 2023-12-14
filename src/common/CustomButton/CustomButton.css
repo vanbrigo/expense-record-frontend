@@ -18,3 +18,12 @@
 .loginButton:hover{
     cursor: pointer;
 }
+.saveButton{
+    height: 2em;
+    width: 5em;
+    background-color:rgb(26, 185, 132) ;
+    border-radius: 2em;
+}
+.saveButton:hover{
+    cursor: pointer;
+}

@@ -48,6 +48,7 @@ export const Profile=()=>{
             onChange={(e)=>functionHandler(e)}>
             </input>
             <img width="25" height="25" 
+            className='editButton'
             onClick={()=>setClick(!click)}
             src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png" 
             alt="pencil"/>
