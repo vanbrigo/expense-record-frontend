@@ -7,3 +7,20 @@
     align-items: center;
     gap:2em;
 }
+.profileBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1em
+}
+.avatarBox{
+    height: 10em;
+    width: 10em;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+}
+.nicknameBox{
+    display: flex;
+    flex-direction: row;
+}

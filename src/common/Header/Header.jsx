@@ -31,7 +31,7 @@ export const Header=()=>{
             </>) 
             :(<>
             <HeaderButton 
-            path='/'
+            path='/profile'
             title={`Welcome, ${nickname}`}
             />
             <HeaderButton 

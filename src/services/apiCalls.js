@@ -14,6 +14,14 @@ export const getAllExpensesByDate = async(month,year,token)=>{
     return await axios.get(`${host}/api/expenses?month=${month}&year=${year}`,{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const getUserProfile = async(token)=>{
+    return await axios.get(`${host}/api/profile`,{headers:{Authorization:`Bearer ${token}`}})
+}
+
+export const updateUserNickname = async(body,token)=>{
+    return await axios.put(`${host}/api/edit-nickname`,body,{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const logUser = async(body)=>{
     return await axios.post(`${host}/api/login`,body)
 }
