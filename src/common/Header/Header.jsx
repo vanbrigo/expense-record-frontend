@@ -2,12 +2,13 @@ import { Container } from "react-bootstrap"
 import "./Header.css"
 import { HeaderButton } from "../HeaderButton/HeaderButton"
 import { useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { logout, userData } from "../../pages/userSlice"
 
 export const Header=()=>{
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
+    const dispatch=useDispatch()
     const navigate=useNavigate()
     const logOutMe = () => {
         dispatch(logout( {credentials : ""}))
