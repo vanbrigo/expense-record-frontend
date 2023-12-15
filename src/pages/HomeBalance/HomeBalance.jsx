@@ -8,7 +8,7 @@ import { userData } from '../userSlice'
 
 export const HomeBalance=()=>{
     const rdxCredentials=useSelector(userData)
-    const token=rdxCredentials.credentials.data.token
+    const token=rdxCredentials.credentials.token
     const [expenses, setExpenses]=useState([])
     const date=dayjs()
     const month=date.month()+1

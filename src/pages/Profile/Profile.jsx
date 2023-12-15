@@ -2,13 +2,14 @@ import { Container } from 'react-bootstrap'
 import './Profile.css'
 import { useEffect, useState } from 'react'
 import { getUserProfile, updateUserNickname } from '../../services/apiCalls'
-import { useSelector } from 'react-redux'
-import { userData } from '../userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { login, userData } from '../userSlice'
 import { CustomButton } from '../../common/CustomButton/CustomButton'
 
 export const Profile=()=>{
     const rdxCredentials=useSelector(userData)
-    const token= rdxCredentials.credentials.data.token
+    const dispatch=useDispatch()
+    const token= rdxCredentials.credentials.token
     const [userProfile, setUserProfile]=useState()
     const [click, setClick]=useState(true)
     const functionHandler = (e) => {
@@ -17,6 +18,7 @@ export const Profile=()=>{
             [e.target.name]:e.target.value
         }))
     }
+    console.log(rdxCredentials.credentials)
     useEffect(()=>{
         if(!userProfile){
             getUserProfile(token)
@@ -29,6 +31,7 @@ export const Profile=()=>{
         updateUserNickname(userProfile,token)
         .then(result=>{
             console.log(result)
+            // dispatch(login({ credentials.data: result }))
             setClick(!click)
         })
         .catch(error=>console.log(error))

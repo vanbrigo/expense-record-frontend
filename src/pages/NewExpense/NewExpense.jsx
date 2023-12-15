@@ -14,7 +14,7 @@ export const NewExpense=()=>{
     const [todayDate,setTodayDate]=useState('')
     const[categories,setCategories]=useState([])
     const rdxCredentials=useSelector(userData)
-    const token=rdxCredentials.credentials.data.token
+    const token=rdxCredentials.credentials.token
     const[expenseDetails, setExpenseDetails]=useState({
         amount:'',
         category_id:'',

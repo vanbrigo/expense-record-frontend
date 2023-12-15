@@ -39,7 +39,7 @@ export const Login=()=>{
         logUser(credentials)
         .then(
             resultado=> {
-                dispatch(login({ credentials: resultado }))
+                dispatch(login({ credentials: resultado.data }))
             navigate("/")
     })
         .catch(error=> console.log(error))

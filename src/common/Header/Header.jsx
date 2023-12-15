@@ -7,13 +7,12 @@ import { logout, userData } from "../../pages/userSlice"
 
 export const Header=()=>{
     const rdxCredentials=useSelector(userData)
-    const token=rdxCredentials.credentials.data.token
+    const token=rdxCredentials.credentials.token
     const navigate=useNavigate()
-    const nickname=rdxCredentials.credentials.data.data.nickname
+    console.log(rdxCredentials.credentials.data.nickname)
     const logOutMe = () => {
         dispatch(logout( {credentials : ""}))
       }
-      console.log(nickname)
     return(
         <Container fluid className="headerDesign">
             <div className="logoHeader" onClick={()=>navigate('/')}></div>
@@ -32,7 +31,7 @@ export const Header=()=>{
             :(<>
             <HeaderButton 
             path='/profile'
-            title={`Welcome, ${nickname}`}
+            title={`Welcome, ${rdxCredentials.credentials.data.nickname}`}
             />
             <HeaderButton 
             path='/home'

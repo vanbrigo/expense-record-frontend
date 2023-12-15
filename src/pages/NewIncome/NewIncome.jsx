@@ -12,7 +12,7 @@ import dayjs from 'dayjs'
 
 export const NewIncome=()=>{
     const rdxCredentials=useSelector(userData)
-    const token=rdxCredentials.credentials.data.token
+    const token=rdxCredentials.credentials.token
     const [categories,setCategories]=useState([])
     const [incomeDetails,setIncomeDetails]=useState({
         amount:'',
