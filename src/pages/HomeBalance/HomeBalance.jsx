@@ -5,9 +5,12 @@ import dayjs from 'dayjs'
 import { getAllExpensesByDate } from '../../services/apiCalls'
 import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
+import { useNavigate } from 'react-router-dom'
+import { HeaderButton } from '../../common/HeaderButton/HeaderButton'
 
 export const HomeBalance=()=>{
     const rdxCredentials=useSelector(userData)
+    const navigate= useNavigate()
     const token=rdxCredentials.credentials.token
     const [expenses, setExpenses]=useState([])
     const date=dayjs()
@@ -26,10 +29,10 @@ export const HomeBalance=()=>{
     },[expenses])
 
     return(
-        <Container fluid>
+        <Container fluid className='balanceDesign'>
             {
                 expenses.length >0
-                ?(<div>
+                ?(<div className='balanceBox'>
                     {expenses.map(expense=>{
                         return(
                         <div key={expense.id}>
@@ -39,9 +42,18 @@ export const HomeBalance=()=>{
                         
                     })}
                 </div>)
-                :(<></>)
+                :(<></>)    
             }
-
+            <div className='balanceButtonsBox'>
+            <HeaderButton 
+            path='/new-income'
+            title='New income'
+            />
+            <HeaderButton 
+            path='/new-expense'
+            title='New expense'
+            />
+            </div>
         </Container>
     )
 }

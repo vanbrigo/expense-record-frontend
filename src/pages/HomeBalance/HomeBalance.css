@@ -1,0 +1,21 @@
+.balanceDesign{
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.balanceBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30em;
+    width: 40em;
+}
+.balanceButtonsBox{
+    display: flex;
+    flex-direction: row;
+    gap: 5em;
+}
