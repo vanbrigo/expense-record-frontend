@@ -18,7 +18,7 @@ export const Profile=()=>{
             [e.target.name]:e.target.value
         }))
     }
-    console.log(rdxCredentials.credentials)
+    
     useEffect(()=>{
         if(!userProfile){
             getUserProfile(token)
@@ -26,17 +26,18 @@ export const Profile=()=>{
             .catch(error=>console.log(error))
         }
     })
-
     const saveData=()=>{
         updateUserNickname(userProfile,token)
         .then(result=>{
             console.log(result)
-            // dispatch(login({ credentials.data: result }))
+            const dataUpdated=result.data
+            dataUpdated.token=token
+            dispatch(login({ credentials: dataUpdated }))
+            console.log(dataUpdated)
             setClick(!click)
         })
         .catch(error=>console.log(error))
     }
-    
     return(
     <Container fluid className='profileDesign'>
         {!userProfile

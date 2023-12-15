@@ -9,7 +9,6 @@ export const Header=()=>{
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
     const navigate=useNavigate()
-    console.log(rdxCredentials.credentials.data.nickname)
     const logOutMe = () => {
         dispatch(logout( {credentials : ""}))
       }
