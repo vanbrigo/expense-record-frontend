@@ -41,8 +41,8 @@ export const HomeBalance=()=>{
                         datasets: [
                           {
                             data: Object.values(categoriasGastos),
-                            backgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611'],
-                            hoverBackgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611'],
+                            backgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611','#861159','#861111','#e9ab0e','#5fcaa3','#96ca5f','#f2880f','#6a0ff2','#c50ff2'],
+                            hoverBackgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611','#861159','#861111','#e9ab0e','#5fcaa3','#96ca5f','#f2880f','#6a0ff2','#c50ff2'],
                           },
                         ],
                       };
