@@ -3,9 +3,8 @@
     height: 86vh;
     width: 100vw;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     gap:1em;
 }
 .categoriesDesign{
@@ -71,4 +70,15 @@
 .inputDate:hover{
     cursor: pointer;
     transform: scale(1.1);
+}
+.contentBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 86vh;
+    gap:0.5em;
+}
+.backIcon:hover{
+    cursor: pointer;
 }

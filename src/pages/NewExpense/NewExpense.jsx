@@ -9,11 +9,13 @@ import dayjs from 'dayjs'
 import { CustomButton } from '../../common/CustomButton/CustomButton'
 import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
+import { useNavigate } from 'react-router-dom'
 
 export const NewExpense=()=>{
     const [todayDate,setTodayDate]=useState('')
     const[categories,setCategories]=useState([])
     const rdxCredentials=useSelector(userData)
+    const navigate=useNavigate()
     const token=rdxCredentials.credentials.token
     const[expenseDetails, setExpenseDetails]=useState({
         amount:'',
@@ -64,6 +66,16 @@ export const NewExpense=()=>{
 
     return(
     <Container fluid className='newExpenseDesign'>
+        <div>
+        <img 
+        className='backIcon'
+        onClick={()=>navigate('/home')}
+        width="50" 
+        height="50" 
+        src="https://img.icons8.com/ios/50/1A1A1A/circled-left-2.png" 
+        alt="circled-left-2"/>
+        </div>
+        <div className='contentBox'>
         <div className='dateBox'>
         {expenseDetails.date==''
         ?(<>Select a date</>)
@@ -140,6 +152,7 @@ export const NewExpense=()=>{
             functionToDo={addExpenseFunction}
             title={"Add"}
             />
+        </div>
         </div>
     </Container>
     )
