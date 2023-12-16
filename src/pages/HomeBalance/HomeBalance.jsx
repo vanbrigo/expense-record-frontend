@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
 import { useNavigate } from 'react-router-dom'
 import { HeaderButton } from '../../common/HeaderButton/HeaderButton'
+import { PieChart } from '../../common/PieChart/PieChart'
 
 export const HomeBalance=()=>{
     const rdxCredentials=useSelector(userData)
@@ -16,13 +17,38 @@ export const HomeBalance=()=>{
     const date=dayjs()
     const month=date.month()+1
     const year=date.year()
+    const [dataPieChart,setDataPieChart] =useState({})
 
     useEffect(()=>{
         if(expenses.length === 0){
             getAllExpensesByDate(month,year,token)
             .then(
                 result=>{
-                    setExpenses(result.data.data)
+                    const gastos=result.data.data
+                    setExpenses(gastos)  
+                    const categoriasGastos = gastos.reduce((acc, expense) => {
+                        const categoria = expense.category.name;
+                        if (acc[categoria]) {
+                          acc[categoria] += parseFloat(expense.amount);
+                        } else {
+                          acc[categoria] = parseFloat(expense.amount);
+                        }
+                        return acc;
+                      }, {});
+                      const categorias=Object.keys(categoriasGastos)
+                      const dataPie = {
+                        labels: categorias,
+                        datasets: [
+                          {
+                            data: Object.values(categoriasGastos),
+                            backgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611'],
+                            hoverBackgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611'],
+                          },
+                        ],
+                      };
+                      setDataPieChart(dataPie)
+                      console.log(result.data.data)
+                      console.log(Object.values(categoriasGastos))
                 })
             .catch(error=>console.log(error))
         }
@@ -33,14 +59,7 @@ export const HomeBalance=()=>{
             {
                 expenses.length >0
                 ?(<div className='balanceBox'>
-                    {expenses.map(expense=>{
-                        return(
-                        <div key={expense.id}>
-                            {expense.category.name}
-                            {expense.amount}
-                        </div>)
-                        
-                    })}
+                    <PieChart data={dataPieChart} />
                 </div>)
                 :(<></>)    
             }
