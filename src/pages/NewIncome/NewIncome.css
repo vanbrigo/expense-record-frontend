@@ -2,9 +2,8 @@
     height: 86vh;
     width: 100vw;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    align-items:flex-start;
     gap:2em;
 }
 .categoriesIncomeDesign{
@@ -50,4 +49,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+.contentIncomeBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 86vh;
+    gap:0.5em;
+    margin-top: 2em;
 }
