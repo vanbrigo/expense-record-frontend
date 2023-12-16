@@ -59,6 +59,7 @@ export const HomeBalance=()=>{
             {
                 expenses.length >0
                 ?(<div className='balanceBox'>
+                    {(date).format('MMMM-YYYY')}
                     <PieChart data={dataPieChart} />
                 </div>)
                 :(<></>)    
