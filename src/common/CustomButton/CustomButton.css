@@ -21,8 +21,12 @@
 .saveButton{
     height: 2em;
     width: 5em;
-    background-color:rgb(26, 185, 132) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(40, 193, 142) ;
     border-radius: 2em;
+    font-weight: 600;
 }
 .saveButton:hover{
     cursor: pointer;

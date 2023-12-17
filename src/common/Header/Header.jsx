@@ -8,7 +8,7 @@ import { logout, userData } from "../../pages/userSlice"
 export const Header=()=>{
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
-    const userRole=rdxCredentials.credentials.data.role
+    const user=rdxCredentials.credentials.data
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const logOutMe = () => {
@@ -30,7 +30,7 @@ export const Header=()=>{
             />
             </>) 
             :(<>
-            {userRole==='super_admin'
+            {user.role==='super_admin'
             ?(<>
             <HeaderButton 
             path='/'
@@ -54,13 +54,13 @@ export const Header=()=>{
             path='/'
             title='My record'
             />
+            </>)}
             <div onClick={logOutMe}>
             <HeaderButton 
             path={"/"} 
             title={"Log out"} 
             />  
             </div>
-            </>)}
             </>)}
             
             </div>
