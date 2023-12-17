@@ -47,8 +47,6 @@ export const HomeBalance=()=>{
                         ],
                       };
                       setDataPieChart(dataPie)
-                      console.log(result.data.data)
-                      console.log(Object.values(categoriasGastos))
                 })
             .catch(error=>console.log(error))
         }

@@ -22,11 +22,11 @@ export const Header=()=>{
             ?(<>
             <HeaderButton 
             path='/register'
-            title='SIGN IN'
+            title='Sign in'
             />
             <HeaderButton 
             path='/login'
-            title='LOG IN'
+            title='Log in'
             />
             </>) 
             :(<>
