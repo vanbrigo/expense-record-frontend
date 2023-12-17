@@ -15,9 +15,9 @@
     gap:1em
 }
 .avatarBox{
-    height: 10em;
-    width: 10em;
-    background-color: cornflowerblue;
+    height: 9em;
+    width: 9em;
+    background-color: rgb(196, 210, 237);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@
     cursor: pointer;
 }
 .editAvatarButton{
-    top:15em;
+    top:14em;
     position: absolute;
     opacity: 0;
 }

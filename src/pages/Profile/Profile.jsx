@@ -44,7 +44,11 @@ export const Profile=()=>{
         ?(<>Nothing here</>)
         :(<div className='profileBox'>
             <div className='avatarBox'>
-            <img width="96" height="96" src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/96/1A1A1A/external-Avatar-user-interface-anggara-basic-outline-anggara-putra.png" alt="external-Avatar-user-interface-anggara-basic-outline-anggara-putra"/>
+            <img 
+            width="100" 
+            height="100" 
+            src={!userProfile.avatar_url ?("https://img.icons8.com/external-anggara-basic-outline-anggara-putra/96/1A1A1A/external-Avatar-user-interface-anggara-basic-outline-anggara-putra.png") :(userProfile.avatar_url)} 
+            alt="external-Avatar-user-interface-anggara-basic-outline-anggara-putra"/>
             <img width="25" height="25" 
             className='editAvatarButton'
             src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png" 
