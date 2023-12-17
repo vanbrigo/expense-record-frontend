@@ -32,6 +32,7 @@ export const Header=()=>{
             :(<>
             {user.role==='super_admin'
             ?(<>
+            {user.role}
             <HeaderButton 
             path='/'
             title='Users'
