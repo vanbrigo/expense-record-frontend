@@ -67,11 +67,11 @@ export const HomeBalance=()=>{
             <div className='balanceButtonsBox'>
             <HeaderButton 
             path='/new-income'
-            title='New income'
+            title='Add income'
             />
             <HeaderButton 
             path='/new-expense'
-            title='New expense'
+            title='Add expense'
             />
             </div>
         </Container>

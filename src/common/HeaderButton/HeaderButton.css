@@ -1,7 +1,9 @@
 .headerButtonDesign{
     font-size: 1.4em;
+    transition: box-shadow 0.4s;
 }
 
 .headerButtonDesign:hover{
     cursor: pointer;
+    box-shadow: 0 4px 0 0 #000;
 }
