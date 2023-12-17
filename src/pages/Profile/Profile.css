@@ -19,6 +19,14 @@
     width: 10em;
     background-color: cornflowerblue;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatarBox:hover .editAvatarButton{
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.4s;
 }
 .nicknameBox{
     display: flex;
@@ -26,4 +34,9 @@
 }
 .editButton:hover{
     cursor: pointer;
+}
+.editAvatarButton{
+    top:15em;
+    position: absolute;
+    opacity: 0;
 }
