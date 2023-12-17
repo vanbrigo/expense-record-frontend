@@ -8,6 +8,7 @@ import { logout, userData } from "../../pages/userSlice"
 export const Header=()=>{
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
+    const userRole=rdxCredentials.credentials.data.role
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const logOutMe = () => {
@@ -29,6 +30,18 @@ export const Header=()=>{
             />
             </>) 
             :(<>
+            {userRole==='super_admin'
+            ?(<>
+            <HeaderButton 
+            path='/'
+            title='Users'
+            />
+            <HeaderButton 
+            path='/'
+            title='Categories'
+            />
+            </>)
+            :(<>
             <HeaderButton 
             path='/profile'
             title={`Welcome, ${rdxCredentials.credentials.data.nickname}`}
@@ -47,6 +60,7 @@ export const Header=()=>{
             title={"Log out"} 
             />  
             </div>
+            </>)}
             </>)}
             
             </div>
