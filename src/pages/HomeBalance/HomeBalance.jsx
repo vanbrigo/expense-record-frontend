@@ -63,14 +63,30 @@ export const HomeBalance=()=>{
                 :(<></>)    
             }
             <div className='balanceButtonsBox'>
+            <div className='addIncomeBox'>
+            <img 
+            onClick={()=>navigate('/new-income')}
+            width="24" 
+            height="24" 
+            src="https://img.icons8.com/material-outlined/24/1A1A1A/add.png" 
+            alt="add"/>
             <HeaderButton 
             path='/new-income'
             title='Add income'
             />
+            </div>
+            <div className='addIncomeBox'>
+            <img 
+            onClick={()=>navigate('/new-expense')}
+            width="24" 
+            height="24" 
+            src="https://img.icons8.com/material-outlined/24/1A1A1A/add.png" 
+            alt="add"/>
             <HeaderButton 
             path='/new-expense'
             title='Add expense'
             />
+            </div>
             </div>
         </Container>
     )
