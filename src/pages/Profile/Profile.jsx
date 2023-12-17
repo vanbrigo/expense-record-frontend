@@ -69,7 +69,7 @@ export const Profile=()=>{
             </div>
         </div>)}
         <CustomButton
-            style={"saveButton"}
+            style={`saveButton  ${click ?'disableButton' :''}`}
             functionToDo={saveData}
             title={"Save"}
             />
