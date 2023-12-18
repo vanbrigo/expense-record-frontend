@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import './Profile.css'
 import { useEffect, useState } from 'react'
-import { getUserProfile, updateUserNickname } from '../../services/apiCalls'
+import { getUserProfile, updateUserAvatar, updateUserNickname } from '../../services/apiCalls'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, userData } from '../userSlice'
 import { CustomButton } from '../../common/CustomButton/CustomButton'
@@ -14,20 +14,36 @@ export const Profile=()=>{
     const [userProfile, setUserProfile]=useState()
     const [click, setClick]=useState(true)
     const [clickAvatar,setClickAvatar]=useState(false)
+    const [avatar,setAvatar]=useState('')
     const functionHandler = (e) => {
         setUserProfile((prevState)=>({
             ...prevState,
             [e.target.name]:e.target.value
         }))
     }
-    
+
+    const handleClick=(url)=>{
+        setClickAvatar(!clickAvatar)
+        setAvatar(url)
+        setUserProfile((prevState)=>({
+            ...prevState,
+            avatar_url:url
+        }))
+    }
     useEffect(()=>{
         if(!userProfile){
             getUserProfile(token)
             .then(result=>setUserProfile(result.data.data))
             .catch(error=>console.log(error))
         }
-    })
+    },[userProfile])
+    useEffect(()=>{
+        if(avatar){
+            updateUserAvatar(avatar,token)
+            .then(result=>console.log(result))
+            .catch(error=>console.log(error))
+        }
+    },[avatar])
     const saveData=()=>{
         updateUserNickname(userProfile,token)
         .then(result=>{
@@ -43,7 +59,9 @@ export const Profile=()=>{
     return(
     <Container fluid className='profileDesign'>
         {clickAvatar &&
-        <AvatarPicker/>
+        <AvatarPicker
+        clickState={handleClick}
+        />
         }
         {!userProfile
         ?(<>Nothing here</>)

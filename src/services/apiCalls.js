@@ -22,6 +22,10 @@ export const updateUserNickname = async(body,token)=>{
     return await axios.put(`${host}/api/edit-nickname`,body,{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const updateUserAvatar = async(body,token)=>{
+    return await axios.put(`${host}/api/edit-avatar`,body,{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const logUser = async(body)=>{
     return await axios.post(`${host}/api/login`,body)
 }
