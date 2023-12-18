@@ -9,9 +9,9 @@
 }
 .categoriesDesign{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     height: 23em;
-    width: 30em;
+    width: 35em;
     gap:1em;
     margin-top: 0.5em;
 }
@@ -20,8 +20,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 5em;
-    width: 5em; 
+    height: 6em;
+    width: 6.5em; 
 }
 .categoryBox:hover{
     cursor: pointer;
@@ -81,4 +81,12 @@
 }
 .backIcon:hover{
     cursor: pointer;
+}
+.categorySelected{
+    background-color: rgb(185, 185, 185); 
+    border-radius: 0.5em;
+}
+.payMethodSelected{
+    background-color: rgb(185, 185, 185); 
+    border-radius: 0.5em;
 }

@@ -17,6 +17,8 @@ export const NewExpense=()=>{
     const rdxCredentials=useSelector(userData)
     const navigate=useNavigate()
     const token=rdxCredentials.credentials.token
+    const [click,setClick]=useState()
+    const [clickPayMethod,setClickPayMethod]=useState()
     const[expenseDetails, setExpenseDetails]=useState({
         amount:'',
         category_id:'',
@@ -32,7 +34,11 @@ export const NewExpense=()=>{
             ...prevState,
             [e.target.name]:e.target.value 
         }))
-        console.log(e.target.value)
+        if(e.target.name==='category_id'){
+            setClick(e.target.value)
+        }if(e.target.name==='pay_method_id'){
+            setClickPayMethod(e.target.value)
+        }
     }
     useEffect(()=>{
         if(categories.length === 0){
@@ -102,14 +108,14 @@ export const NewExpense=()=>{
         </div>
         <div className='payMethodBox'>
         <img 
-        className='payMethodImage' 
+        className={`payMethodImage ${clickPayMethod===2 ?'payMethodSelected' :''}` }
         width="50" 
         height="50" 
         src="https://img.icons8.com/ios/50/bank-card-back-side--v1.png" 
         alt="bank-card-back-side--v1"
         onClick={()=>functionHandler({target:{name:'pay_method_id',value:2}})}/>
         <img 
-        className='payMethodImage' 
+        className={`payMethodImage ${clickPayMethod===1 ?'payMethodSelected' :''}` }
         width="50" 
         height="50" 
         src="https://img.icons8.com/ios/50/banknotes.png" 
@@ -123,7 +129,7 @@ export const NewExpense=()=>{
                 categories.map(
                     category =>{
                         return(
-                            <div key={category.id} className='categoryBox' onClick={()=>functionHandler({target:{name:'category_id', value:category.id}})}>
+                            <div key={category.id} className={`categoryBox ${click===category.id  ? 'categorySelected' : ''}`} onClick={()=>functionHandler({target:{name:'category_id', value:category.id}})}>
                                 <img src={category.icon_url} alt={category.name} className='categoryIcon'></img>
                                 {category.name}
                             </div>
