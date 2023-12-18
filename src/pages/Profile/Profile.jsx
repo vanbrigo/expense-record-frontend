@@ -94,10 +94,13 @@ export const Profile=()=>{
             alt="pencil"/>
             </div>
         </div>)}
-        <CustomButton
+        {
+            !click &&
+            <CustomButton
             style={`saveButton  ${click ?'disableButton' :''}`}
             functionToDo={saveData}
             title={"Save"}
             />
+        }
     </Container>)
 }

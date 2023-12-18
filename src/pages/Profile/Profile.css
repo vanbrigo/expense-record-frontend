@@ -36,7 +36,12 @@
     cursor: pointer;
 }
 .editAvatarButton{
-    top:14em;
+    top:21em;
     position: absolute;
     opacity: 0;
+}
+.profileBox{
+    height: 25em;
+    width: 18em;
+    background-color: rgb(107, 158, 172);
 }
