@@ -1,0 +1,30 @@
+.avatarPickerDesign{
+    height: 40em;
+    width: 40em;
+    background-color: rgba(202, 222, 240, 0.855);
+
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(8em, 1fr));
+    place-items: center; */
+}
+.avatarPicker{
+    height: 30em;
+    width: 30em;
+    background-color: rgb(140, 192, 237);
+
+    display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(8em, 1fr));
+    place-items: center;
+}
+.avatarPickerBox{
+    height: 7em;
+    width: 7em;
+}
+.avatarPickerBox:hover{
+    cursor: pointer;
+    background-color:  rgb(119, 164, 203);
+}

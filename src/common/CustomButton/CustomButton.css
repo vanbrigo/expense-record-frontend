@@ -37,6 +37,6 @@
     cursor: pointer;
 }
 .disableButton{
-    opacity: 0.5;
+    background-color:rgb(118, 193, 168) ;
     pointer-events: none;
 }

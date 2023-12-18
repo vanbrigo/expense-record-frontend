@@ -5,6 +5,7 @@ import { getUserProfile, updateUserNickname } from '../../services/apiCalls'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, userData } from '../userSlice'
 import { CustomButton } from '../../common/CustomButton/CustomButton'
+import { AvatarPicker } from '../AvatarPicker/AvatarPicker'
 
 export const Profile=()=>{
     const rdxCredentials=useSelector(userData)
@@ -12,6 +13,7 @@ export const Profile=()=>{
     const token= rdxCredentials.credentials.token
     const [userProfile, setUserProfile]=useState()
     const [click, setClick]=useState(true)
+    const [clickAvatar,setClickAvatar]=useState(false)
     const functionHandler = (e) => {
         setUserProfile((prevState)=>({
             ...prevState,
@@ -40,6 +42,9 @@ export const Profile=()=>{
     }
     return(
     <Container fluid className='profileDesign'>
+        {clickAvatar &&
+        <AvatarPicker/>
+        }
         {!userProfile
         ?(<>Nothing here</>)
         :(<div className='profileBox'>
@@ -52,7 +57,8 @@ export const Profile=()=>{
             <img width="25" height="25" 
             className='editAvatarButton'
             src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png" 
-            alt="pencil"/>
+            alt="pencil"
+            onClick={()=>setClickAvatar(!clickAvatar)}/>
             </div>
             <div className='nicknameBox'>
             <input 
