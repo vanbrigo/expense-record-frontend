@@ -22,28 +22,30 @@ export const Profile=()=>{
         }))
     }
 
-    const handleClick=(url)=>{
+    const handleClick=(avatar)=>{
         setClickAvatar(!clickAvatar)
-        setAvatar(url)
+        setAvatar(avatar)
         setUserProfile((prevState)=>({
             ...prevState,
-            avatar_url:url
+            avatar_url:avatar
         }))
     }
     useEffect(()=>{
         if(!userProfile){
             getUserProfile(token)
-            .then(result=>setUserProfile(result.data.data))
+            .then(result=>{
+                setUserProfile(result.data.data)
+                console.log(result.data.data)
+            })
             .catch(error=>console.log(error))
         }
-    },[userProfile])
-    useEffect(()=>{
         if(avatar){
-            updateUserAvatar(avatar,token)
+            updateUserAvatar(userProfile,token)
             .then(result=>console.log(result))
             .catch(error=>console.log(error))
         }
-    },[avatar])
+    },[userProfile])
+    
     const saveData=()=>{
         updateUserNickname(userProfile,token)
         .then(result=>{
