@@ -16,6 +16,7 @@ export const NewIncome=()=>{
     const navigate=useNavigate()
     const token=rdxCredentials.credentials.token
     const [categories,setCategories]=useState([])
+    const [click,setClick]=useState()
     const [incomeDetails,setIncomeDetails]=useState({
         amount:'',
         category_id:'',
@@ -30,7 +31,9 @@ export const NewIncome=()=>{
             ...prevState,
             [e.target.name]:e.target.value 
         }))
-        console.log(e.target.value)
+        if(e.target.name==='category_id'){
+            setClick(e.target.value)
+        }
     }
     useEffect(()=>{
         if(categories.length === 0){
@@ -94,7 +97,7 @@ export const NewIncome=()=>{
             categories.length > 0
             ?(<div className='categoriesIncomeDesign'>
                 {categories.map(category=>{
-                    return(<div key={category.id} className='categoryIncomeBox' onClick={()=>functionHandler({target:{name:'category_id', value:category.id}})}>
+                    return(<div key={category.id} className={`categoryIncomeBox ${click===category.id  ? 'categorySelected' : ''}`} onClick={()=>functionHandler({target:{name:'category_id', value:category.id}})}>
                         <img src={category.icon_url} alt={category.name} className='categoryIcon'></img>
                         {category.name}
                     </div>)
