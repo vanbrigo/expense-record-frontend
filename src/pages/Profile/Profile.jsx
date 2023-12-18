@@ -35,7 +35,6 @@ export const Profile=()=>{
             getUserProfile(token)
             .then(result=>{
                 setUserProfile(result.data.data)
-                console.log(result.data.data)
             })
             .catch(error=>console.log(error))
         }
@@ -49,11 +48,9 @@ export const Profile=()=>{
     const saveData=()=>{
         updateUserNickname(userProfile,token)
         .then(result=>{
-            console.log(result)
             const dataUpdated=result.data
             dataUpdated.token=token
             dispatch(login({ credentials: dataUpdated }))
-            console.log(dataUpdated)
             setClick(!click)
         })
         .catch(error=>console.log(error))
@@ -88,11 +85,12 @@ export const Profile=()=>{
             disabled={click}
             onChange={(e)=>functionHandler(e)}>
             </input>
+            {click &&
             <img width="25" height="25" 
             className='editButton'
             onClick={()=>setClick(!click)}
             src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png" 
-            alt="pencil"/>
+            alt="pencil"/>}
             </div>
         </div>)}
         {
