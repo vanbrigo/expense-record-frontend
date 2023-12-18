@@ -63,6 +63,7 @@ export const Profile=()=>{
         {clickAvatar &&
         <AvatarPicker
         clickState={handleClick}
+        functionClick={()=>setClickAvatar(!clickAvatar)}
         />
         }
         {!userProfile
