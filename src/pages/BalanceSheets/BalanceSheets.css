@@ -2,8 +2,19 @@
     height: 86vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
-    align-items:flex-start;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
     gap:2em;
     background-color: blueviolet;
+    padding-top: 1em;
+}
+.balanceBox{
+    height: 25em;
+    width: 20em;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1em;
 }
