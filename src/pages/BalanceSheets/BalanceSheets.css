@@ -1,0 +1,9 @@
+.balanceSheetsDesign{
+    height: 86vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    gap:2em;
+    background-color: blueviolet;
+}
