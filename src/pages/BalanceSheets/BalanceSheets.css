@@ -9,12 +9,24 @@
     background-color: blueviolet;
     padding-top: 1em;
 }
-.balanceBox{
-    height: 25em;
+.oldBalanceBox{
+    height: 20em;
     width: 20em;
     background-color: aliceblue;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 1em;
+    gap:1em
+}
+.balanceBoxInside{
+    height: 2em;
+    width: 15em;
+    background-color: rgb(166, 229, 212);
+    display: flex;
+    justify-content: space-evenly;
+}
+.balanceAmount{
+    font-size: 1.5em;
 }

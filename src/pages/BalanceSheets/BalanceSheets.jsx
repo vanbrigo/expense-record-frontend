@@ -17,7 +17,6 @@ export const BalanceSheets=()=>{
             getAllBalances(token)
             .then(result=>{
                 setBalances(result.data.data)
-                console.log(result.data.data)
             })
             .catch(error=>console.log(error))
         }
@@ -33,7 +32,6 @@ export const BalanceSheets=()=>{
     },[date])
     const functionHandler = (e) => {
         setDate(e.target.value)
-        console.log(e.target.value)
     }
     return(
     <Container fluid className='balanceSheetsDesign'>
@@ -48,8 +46,10 @@ export const BalanceSheets=()=>{
             })}
         </select>
         {oneBalance &&
-        <div className='balanceBox'>
-        {oneBalance.balance}
+        <div className='oldBalanceBox'>
+        <div className='balanceBoxInside balanceAmount'><span>Balance</span> {oneBalance.balance}</div>
+        <div className='balanceBoxInside'><span>Incomes</span> {oneBalance.income}</div>
+        <div className='balanceBoxInside'><span>Expenses</span> {oneBalance.expenses}</div>
         </div>
         }
         </>)
