@@ -52,7 +52,7 @@ export const Header=()=>{
             title=' My balance'
             />
             <HeaderButton 
-            path='/'
+            path='/my-record'
             title='My record'
             />
             </>)}
