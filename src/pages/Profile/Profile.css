@@ -6,13 +6,18 @@
     justify-content: flex-start;
     align-items: center;
     gap:2em;
+    background-color: blueviolet;
 }
 .profileBox{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:1em
+    gap:1em;
+    height: 20em;
+    width: 18em;
+    background-color: aliceblue;
+    margin-top: 2em;
 }
 .avatarBox{
     height: 9em;
@@ -39,9 +44,4 @@
     top:21em;
     position: absolute;
     opacity: 0;
-}
-.profileBox{
-    height: 25em;
-    width: 18em;
-    background-color: rgb(107, 158, 172);
 }

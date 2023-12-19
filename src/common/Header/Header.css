@@ -1,7 +1,7 @@
 .headerDesign{
     height: 14vh;
     width: 100vw;
-    background-color: rgb(255, 255, 255);
+    background-color: aliceblue;
 
     display: flex;
     justify-content: flex-start;
@@ -23,7 +23,7 @@
 .headerBox{
     height: 14vh;
     width:80vw ;
-    background-color: rgb(255, 255, 255);
+    background-color: aliceblue;
 
     display: flex;
     justify-content: flex-end;

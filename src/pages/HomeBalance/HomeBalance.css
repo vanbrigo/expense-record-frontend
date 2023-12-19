@@ -5,6 +5,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding-top: 2em;
+    background-color: aliceblue;
 }
 .balanceBox{
     display: flex;
