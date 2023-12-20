@@ -13,6 +13,7 @@
     height: 40em;
     width: 20em;
     background-color: blueviolet;
+    /* background-color:rgb(40, 193, 142) ; */
     border-radius: 0 40em 40em 0;
     animation:scale-up-horizontal-left 0.4s } @keyframes scale-up-horizontal-left{0%{transform:scaleX(.4);transform-origin:left center}100%{transform:scaleX(1);transform-origin:left center}
 }
