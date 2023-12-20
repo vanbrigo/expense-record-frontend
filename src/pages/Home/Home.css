@@ -1,0 +1,38 @@
+.homeDesign{
+    height: 86vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color:aliceblue;
+    padding: 0;
+    margin: 0;
+    /* background-color: brown; */
+}
+.leftBox{
+    height: 40em;
+    width: 20em;
+    background-color: blueviolet;
+    border-radius: 0 40em 40em 0;
+    animation:scale-up-horizontal-left 0.4s } @keyframes scale-up-horizontal-left{0%{transform:scaleX(.4);transform-origin:left center}100%{transform:scaleX(1);transform-origin:left center}
+}
+.centerBox{
+    height: 30em;
+    width: 50em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;  
+    /* background-color: bisque; */
+    padding-top: 2em;
+}
+.firstLine{
+    height: 3em;
+    width: 12em;
+    font-size: 2.5em;
+    text-align: left;
+    font-weight: 300;
+}
+.secondtLine{
+    font-weight: 600;
+}

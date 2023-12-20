@@ -41,7 +41,7 @@
     cursor: pointer;
 }
 .editAvatarButton{
-    top:21em;
+    top:20em;
     position: absolute;
     opacity: 0;
 }

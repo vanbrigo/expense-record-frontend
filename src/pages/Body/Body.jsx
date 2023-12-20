@@ -6,6 +6,7 @@ import { NewIncome } from "../NewIncome/NewIncome";
 import { HomeBalance } from "../HomeBalance/HomeBalance";
 import { Profile } from "../Profile/Profile";
 import { BalanceSheets } from "../BalanceSheets/BalanceSheets";
+import { Home } from "../Home/Home";
 
 
 
@@ -14,6 +15,7 @@ export const Body=()=>{
         <>
         <Routes>
             <Route path="*" element={<Navigate to='/'/>}/>
+            <Route path="/" element={<Home />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/register" element={<Register />}/>
             <Route path="/home" element={<HomeBalance />}/>
