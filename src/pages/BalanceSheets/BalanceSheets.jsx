@@ -30,6 +30,9 @@ export const BalanceSheets=()=>{
             .catch(error=>console.log(error))
         }
     },[date])
+    useEffect(()=>{
+        
+    })
     const functionHandler = (e) => {
         setDate(e.target.value)
     }
