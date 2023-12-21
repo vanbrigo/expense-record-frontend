@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 2em;
+    padding-top: 1em;
     background-color: aliceblue;
 }
 .balanceBox{
@@ -13,8 +13,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 30em;
-    width: 40em;
+    height: 35em;
+    width: 35em;
+    padding: 3em;
 }
 .balanceButtonsBox{
     display: flex;
@@ -30,4 +31,12 @@
 .addIncomeBox:hover{
     cursor: pointer;
     box-shadow: 0 4px 0 0 #000;
+}
+.allBalancesBox{
+    display: flex;
+    gap:1em
+}
+.dateBalance{
+    font-size: 1.5em;
+    font-weight: 800;
 }

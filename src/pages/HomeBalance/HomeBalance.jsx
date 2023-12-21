@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap'
 import './HomeBalance.css'
 import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
-import { getAllExpensesByDate } from '../../services/apiCalls'
+import { getAllExpensesByDate, getAllIncomesByDate } from '../../services/apiCalls'
 import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
 import { useNavigate } from 'react-router-dom'
@@ -19,6 +19,7 @@ export const HomeBalance=()=>{
     const month=date.month()+1
     const year=date.year()
     const [dataPieChart,setDataPieChart] =useState({})
+    const [dataPieChartIncomes,setDataPieChartIncomes]=useState({})
 
     useEffect(()=>{
         if(expenses.length === 0){
@@ -55,46 +56,77 @@ export const HomeBalance=()=>{
 
     useEffect(()=>{
       if(incomes.length===0){
-        
+        getAllIncomesByDate(month,year,token)
+        .then(result=>{
+          const ingresos=result.data.data 
+          setIncomes(ingresos)
+          const categoriasIngresos= ingresos.reduce((acc, income) => {
+            const categoria = income.category.name;
+                        if (acc[categoria]) {
+                          acc[categoria] += parseFloat(income.amount);
+                        } else {
+                          acc[categoria] = parseFloat(income.amount);
+                        }
+                        return acc;
+          },{})
+          const categorias=Object.keys(categoriasIngresos)
+                      const dataPieIncomes = {
+                        labels: categorias,
+                        datasets: [
+                          {
+                            data: Object.values(categoriasIngresos),
+                            backgroundColor:['#e9ab0e','#5fcaa3','#96ca5f','#f2880f','#6a0ff2','#c50ff2'],
+                            hoverBackgroundColor:['#e9ab0e','#5fcaa3','#96ca5f','#f2880f','#6a0ff2','#c50ff2'],
+                          },
+                        ],
+                      };
+                      setDataPieChartIncomes(dataPieIncomes)
+        })
+        .catch(error=>console.log(error))
       }
     },[incomes])
 
-    return(
-        <Container fluid className='balanceDesign'>
-            {
-                expenses.length >0
-                ?(<div className='balanceBox'>
-                    {(date).format('MMMM-YYYY')}
-                    <PieChart data={dataPieChart} />
-                </div>)
-                :(<></>)    
-            }
-            <div className='balanceButtonsBox'>
-            <div className='addIncomeBox'>
-            <img 
-            onClick={()=>navigate('/new-income')}
-            width="24" 
-            height="24" 
-            src="https://img.icons8.com/material-outlined/24/1A1A1A/add.png" 
-            alt="add"/>
-            <HeaderButton 
-            path='/new-income'
-            title='Add income'
-            />
+    return (
+      <Container fluid className="balanceDesign">
+        <span className="dateBalance">{date.format("MMMM-YYYY")}</span>
+        <div className="allBalancesBox">
+          {incomes.length > 0 ? (
+            <div className="balanceBox">
+              <span>Incomes</span>
+              <PieChart data={dataPieChartIncomes} />
+              <div className="addIncomeBox">
+                <img
+                  onClick={() => navigate("/new-income")}
+                  width="24"
+                  height="24"
+                  src="https://img.icons8.com/material-outlined/24/1A1A1A/add.png"
+                  alt="add"
+                />
+                <HeaderButton path="/new-income" title="Add income" />
+              </div>
             </div>
-            <div className='addIncomeBox'>
-            <img 
-            onClick={()=>navigate('/new-expense')}
-            width="24" 
-            height="24" 
-            src="https://img.icons8.com/material-outlined/24/1A1A1A/add.png" 
-            alt="add"/>
-            <HeaderButton 
-            path='/new-expense'
-            title='Add expense'
-            />
+          ) : (
+            <></>
+          )}
+          {expenses.length > 0 ? (
+            <div className="balanceBox">
+              <span>Expenses</span>
+              <PieChart data={dataPieChart} />
+              <div className="addIncomeBox">
+                <img
+                  onClick={() => navigate("/new-expense")}
+                  width="24"
+                  height="24"
+                  src="https://img.icons8.com/material-outlined/24/1A1A1A/add.png"
+                  alt="add"
+                />
+                <HeaderButton path="/new-expense" title="Add expense" />
+              </div>
             </div>
-            </div>
-        </Container>
-    )
+          ) : (
+            <></>
+          )}
+        </div>
+      </Container>
+    );
 }
