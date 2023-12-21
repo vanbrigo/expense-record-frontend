@@ -50,6 +50,7 @@ export const BalanceSheets=()=>{
         </select>
         {oneBalance &&
         <div className='oldBalanceBox'>
+        <div className='balanceBoxInside'>{dayjs(oneBalance.date).format('MMMM-YYYY')}</div>
         <div className='balanceBoxInside balanceAmount'><span>Balance</span> {oneBalance.balance}</div>
         <div className='balanceBoxInside'><span>Incomes</span> {oneBalance.income}</div>
         <div className='balanceBoxInside'><span>Expenses</span> {oneBalance.expenses}</div>
