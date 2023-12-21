@@ -42,6 +42,7 @@ export const AllUsers=()=>{
                   <div className="userBox" key={user.id}>
                     <div className="boxInside">{user.nickname}</div>
                     <div className="boxInside">{user.email}</div>
+                    <div className="boxInside">{user.role}</div>
                     <div className="boxInside boxIsActive">
                       {user.is_active === 1 ? <>Active</> : <>Inactive</>}
                     </div>

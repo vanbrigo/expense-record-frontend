@@ -9,18 +9,22 @@
     background-color: aliceblue;
 }
 .allUsersBox{
-    background-color: aqua;
     height: auto;
-    width: 40em;
+    width: 57em;
     display: flex;
     flex-direction: column;
-    gap:1em
+    justify-content: center;
+    align-items: center;
+    gap:1em;
+    background-color: rgb(147, 190, 192);
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 .userBox{
-    background-color: blue;
     height: 2em;
-    width: 40em;
+    width: 55em;
     display: flex;
+    background-color: aliceblue;
 }
 .boxInside{
     height: 2em;
@@ -33,7 +37,6 @@
 }
 .iconDeleteUser{
     justify-content: center;
-    background-color: brown;
     width: 5em;
 }
 .deleteIcon:hover{
