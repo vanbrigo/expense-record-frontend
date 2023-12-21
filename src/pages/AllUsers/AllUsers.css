@@ -1,0 +1,41 @@
+.allUsersdesign{
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2em;
+    background-color: aliceblue;
+}
+.allUsersBox{
+    background-color: aqua;
+    height: auto;
+    width: 40em;
+    display: flex;
+    flex-direction: column;
+    gap:1em
+}
+.userBox{
+    background-color: blue;
+    height: 2em;
+    width: 40em;
+    display: flex;
+}
+.boxInside{
+    height: 2em;
+    width: 15em;
+    display: flex;
+    justify-content: flex-start;
+}
+.boxIsActive{
+    width: 5em;
+}
+.iconDeleteUser{
+    justify-content: center;
+    background-color: brown;
+    width: 5em;
+}
+.deleteIcon:hover{
+    cursor: pointer;
+}
