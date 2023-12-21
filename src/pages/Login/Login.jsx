@@ -40,7 +40,11 @@ export const Login=()=>{
         .then(
             resultado=> {
                 dispatch(login({ credentials: resultado.data }))
-            navigate("/home")
+                if(resultado.data.data.role==="super_admin"){
+                    navigate('/')
+                }else if(resultado.data.data.role==="user"){
+                    navigate("/home")
+                }
     })
         .catch(error=> console.log(error))
     }
