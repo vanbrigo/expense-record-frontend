@@ -34,7 +34,7 @@ export const Header=()=>{
             ?(<>
             {user.role}
             <HeaderButton 
-            path='/'
+            path='/all-users'
             title='Users'
             />
             <HeaderButton 
