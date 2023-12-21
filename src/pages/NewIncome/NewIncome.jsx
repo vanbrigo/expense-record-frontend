@@ -54,7 +54,10 @@ export const NewIncome=()=>{
       }
     const addIncomeFunction=()=>{
         addIncome(incomeDetails,token)
-        .then(results=>console.log(results))
+        .then(results=>{
+            console.log(results)
+            navigate('/home')
+        })
         .catch(error=>console.log(error)) 
     }
 

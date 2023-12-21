@@ -66,7 +66,10 @@ export const NewExpense=()=>{
       }
     const addExpenseFunction=()=>{
         addExpense(expenseDetails,token)
-        .then(result=>console.log(result))
+        .then(result=>{
+            console.log(result)
+            navigate('/home')
+        })
         .catch(error=>console.log(error))
     }
 
