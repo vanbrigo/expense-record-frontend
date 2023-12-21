@@ -92,7 +92,7 @@ export const HomeBalance=()=>{
         <div className="allBalancesBox">
           {incomes.length > 0 ? (
             <div className="balanceBox">
-              <span>Incomes</span>
+              <span className='typeBalanceName'>Incomes</span>
               <PieChart data={dataPieChartIncomes} />
               <div className="addIncomeBox">
                 <img
@@ -110,7 +110,7 @@ export const HomeBalance=()=>{
           )}
           {expenses.length > 0 ? (
             <div className="balanceBox">
-              <span>Expenses</span>
+              <span className='typeBalanceName'>Expenses</span>
               <PieChart data={dataPieChart} />
               <div className="addIncomeBox">
                 <img
