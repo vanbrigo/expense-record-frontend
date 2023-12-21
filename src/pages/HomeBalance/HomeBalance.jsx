@@ -20,6 +20,10 @@ export const HomeBalance=()=>{
     const year=date.year()
     const [dataPieChart,setDataPieChart] =useState({})
     const [dataPieChartIncomes,setDataPieChartIncomes]=useState({})
+    const [totalAmounts,setTotalAmounts]=useState({
+      totalIncomes:'',
+      totalExpenses:''
+    })
 
     useEffect(()=>{
         if(expenses.length === 0){
@@ -36,7 +40,14 @@ export const HomeBalance=()=>{
                           acc[categoria] = parseFloat(expense.amount);
                         }
                         return acc;
-                      }, {});
+                      }, {})
+                      const sumaTotalGastos = Object.values(categoriasGastos).reduce(
+                        (total, value) => total + value
+                      )
+                      setTotalAmounts((prevState) => ({
+                        ...prevState,
+                        totalExpenses: sumaTotalGastos
+                      }));
                       const categorias=Object.keys(categoriasGastos)
                       const dataPie = {
                         labels: categorias,
@@ -69,6 +80,13 @@ export const HomeBalance=()=>{
                         }
                         return acc;
           },{})
+          const sumaTotalIngresos = Object.values(categoriasIngresos).reduce(
+            (total, value) => total + value
+          )
+          setTotalAmounts((prevState) => ({
+            ...prevState,
+            totalIncomes: sumaTotalIngresos
+          }));
           const categorias=Object.keys(categoriasIngresos)
                       const dataPieIncomes = {
                         labels: categorias,
@@ -88,11 +106,13 @@ export const HomeBalance=()=>{
 
     return (
       <Container fluid className="balanceDesign">
-        <span className="dateBalance">{date.format("MMMM-YYYY")}</span>
+        <span className="dateBalance">{date.format("DD-MMMM-YYYY")}</span>
+        <span className='balanceName'>BALANCE: <span className={`balanceHomeAmount ${totalAmounts.totalIncomes-totalAmounts.totalExpenses >0 ?'' :'redBalance'}`}>{totalAmounts.totalIncomes-totalAmounts.totalExpenses}</span></span>
         <div className="allBalancesBox">
           {incomes.length > 0 ? (
             <div className="balanceBox">
               <span className='typeBalanceName'>Incomes</span>
+              <span className='typeBalanceName'>TOTAL: {totalAmounts.totalIncomes}</span>
               <PieChart data={dataPieChartIncomes} />
               <div className="addIncomeBox">
                 <img
@@ -111,6 +131,7 @@ export const HomeBalance=()=>{
           {expenses.length > 0 ? (
             <div className="balanceBox">
               <span className='typeBalanceName'>Expenses</span>
+              <span className='typeBalanceName'>TOTAL: {totalAmounts.totalExpenses}</span>
               <PieChart data={dataPieChart} />
               <div className="addIncomeBox">
                 <img
