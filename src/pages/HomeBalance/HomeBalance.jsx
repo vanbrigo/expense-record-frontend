@@ -14,6 +14,7 @@ export const HomeBalance=()=>{
     const navigate= useNavigate()
     const token=rdxCredentials.credentials.token
     const [expenses, setExpenses]=useState([])
+    const [incomes, setIncomes]=useState([])
     const date=dayjs()
     const month=date.month()+1
     const year=date.year()
@@ -51,6 +52,12 @@ export const HomeBalance=()=>{
             .catch(error=>console.log(error))
         }
     },[expenses])
+
+    useEffect(()=>{
+      if(incomes.length===0){
+        
+      }
+    },[incomes])
 
     return(
         <Container fluid className='balanceDesign'>
