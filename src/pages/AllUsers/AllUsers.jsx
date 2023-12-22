@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import './AllUsers.css'
 import { useEffect, useState } from 'react'
-import { activateUser, getAllUsers, inactivateUser } from '../../services/apiCalls'
+import { activateUser, getAllUsers, inactivateUser, updateUserRole } from '../../services/apiCalls'
 import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
 
@@ -37,7 +37,14 @@ export const AllUsers=()=>{
         setClickrole(id)
     }
     const functionUpdate = (e) => {
-        
+        const role={role:e.target.value}
+        updateUserRole(clickRole,role,token)
+        .then(result=>{
+            console.log(result)
+            setClickrole(null)
+            setUsers([])
+        })
+        .catch(error=>console.log(error))
         // setUserUpdate(e.target.value)
     }
 
@@ -55,6 +62,7 @@ export const AllUsers=()=>{
                       {clickRole===user.id
                       ?(<>
                       <select key={user.id} onChange={functionUpdate}>
+                        <option>Select new Role</option>
                         <option>user</option>
                         <option>admin</option>
                         <option>super admin</option>

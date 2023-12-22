@@ -46,6 +46,10 @@ export const updateUserAvatar = async(body,token)=>{
     return await axios.put(`${host}/api/edit-avatar`,body,{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const updateUserRole = async(id,body,token)=>{
+    return await axios.put(`${host}/api/user-role/${id}`,body,{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const activateUser = async(id,token)=>{
     return await axios.put(`${host}/api/user-activate/${id}`,{},{headers:{Authorization:`Bearer ${token}`}})
 }
