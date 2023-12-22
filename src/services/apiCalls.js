@@ -69,3 +69,7 @@ export const addExpense = async(body,token)=>{
 export const addIncome = async(body,token)=>{
     return await axios.post(`${host}/api/new-income`,body,{headers:{Authorization:`Bearer ${token}`}})
 }
+
+export const deleteCategoryAsSuperAdmin = async(id,token)=>{
+    return await axios.delete(`${host}/api/delete-category/${id}`,{headers:{Authorization:`Bearer ${token}`}})
+}
