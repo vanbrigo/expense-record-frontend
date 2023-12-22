@@ -34,6 +34,7 @@ export const AllUsers=()=>{
     }
 
     return(<Container fluid className='allUsersdesign'>
+        <span className='viewNameSuperAdmin'>USERS</span>
         {
             users.length > 0 
             ?(<div className='allUsersBox'>

@@ -37,3 +37,8 @@
 .iconDeleteCategory{
     width: 4em;
 }
+.viewNameSuperAdmin{
+    font-size: 2em;
+    font-weight: 800;
+    padding-bottom: 0.5em;
+}

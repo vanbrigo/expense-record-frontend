@@ -28,6 +28,7 @@ export const AllCategories=()=>{
         .catch(error=>console.log(error))
     }
     return(<Container fluid className='allCategoriesDesign'>
+        <span className='viewNameSuperAdmin'>CATEGORIES</span>
         <div>{msgDelete}</div>
         {categories.length > 0
         ?(<div className='allCategoriesBox'>
