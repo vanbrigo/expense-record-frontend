@@ -10,6 +10,10 @@ export const getAllUsers = async(token)=>{
     return await axios.get(`${host}/api/all-users`,{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const getAllCategories = async(token)=>{
+    return await axios.get(`${host}/api/all-categories`,{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const getAllIncomesCategories = async(token)=>{
     return await axios.get(`${host}/api/categories-incomes`,{headers:{Authorization:`Bearer ${token}`}})
 }

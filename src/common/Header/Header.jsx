@@ -38,7 +38,7 @@ export const Header=()=>{
             title='Users'
             />
             <HeaderButton 
-            path='/'
+            path='/categories'
             title='Categories'
             />
             </>)

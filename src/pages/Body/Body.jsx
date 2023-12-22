@@ -8,6 +8,7 @@ import { Profile } from "../Profile/Profile";
 import { BalanceSheets } from "../BalanceSheets/BalanceSheets";
 import { Home } from "../Home/Home";
 import { AllUsers } from "../AllUsers/AllUsers";
+import { AllCategories } from "../AllCategories/AllCategories";
 
 
 
@@ -25,6 +26,7 @@ export const Body=()=>{
             <Route path="/new-income" element={<NewIncome />}/>
             <Route path="/my-record" element={<BalanceSheets />}/>
             <Route path="/all-users" element={<AllUsers />}/>
+            <Route path="/categories" element={<AllCategories />}/>
         </Routes>
         </>
     )
