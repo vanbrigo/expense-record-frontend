@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 export const Register=()=>{
     const navigate=useNavigate()
+    const [msg,setMsg]=useState('')
     const [credentials, setCredentials]=useState({
         nickname:'',
         email:'',
@@ -38,7 +39,12 @@ export const Register=()=>{
         registerUser(credentials)
         .then(
             resultado=> {
-            console.log(resultado.data)
+                setMsg(resultado.data.message)
+                setTimeout(()=>{
+                    navigate('/login')
+                }, 2000);
+                
+            console.log(resultado.data.message)
 
     })
         .catch(error=> console.log(error))
@@ -83,6 +89,9 @@ export const Register=()=>{
             functionToDo={signIn}
             title={"Sign up"}
             />
+        {msg==='user registered' && 
+           <div>¡User registered successfully!</div>
+        }
         </div>
         </Container>
     )
