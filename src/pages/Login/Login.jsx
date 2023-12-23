@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import './Login.css'
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { CustomInput } from '../../common/CustomInput/CustomInput'
 import { validator } from '../../services/validations'
 import { login, userData } from "../userSlice"
@@ -12,6 +12,8 @@ import { useNavigate } from 'react-router-dom'
 export const Login=()=>{
     const dispatch = useDispatch()
     const navigate=useNavigate()
+    const rdxCredentials=useSelector(userData)
+    const token=rdxCredentials.credentials.token
     const [credentials, setCredentials]=useState({
         email:'',
         password:''
@@ -26,6 +28,13 @@ export const Login=()=>{
             [e.target.name]:e.target.value
         }))
     }
+
+    useEffect(()=>{
+        if(token){
+            navigate('/')
+        }
+      },[token]) 
+
     const errorCheck = (e) => {
         let error = "";
         error = validator(e.target.name, e.target.value);
