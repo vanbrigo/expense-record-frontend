@@ -35,7 +35,7 @@
 [![Image from Gyazo](https://i.gyazo.com/56fea94264d358dcfe999744de1ce627.gif)](https://gyazo.com/56fea94264d358dcfe999744de1ce627)
 
 #### New income
-
+[![Image from Gyazo](https://i.gyazo.com/3363c98923899078fc32a6464806f491.gif)](https://gyazo.com/3363c98923899078fc32a6464806f491)
 
 #### New expense
 [![Image from Gyazo](https://i.gyazo.com/e63643e22cd2d844c12c117b310a8755.gif)](https://gyazo.com/e63643e22cd2d844c12c117b310a8755)
@@ -46,8 +46,10 @@
 ### Super admin views
 
 #### All users
+[![Image from Gyazo](https://i.gyazo.com/1cc4341adddf0f10c73e9a5210f05790.gif)](https://gyazo.com/1cc4341adddf0f10c73e9a5210f05790)
 
 #### All categories
+[![Image from Gyazo](https://i.gyazo.com/4e06feef9297a5451d696d060d6b422a.gif)](https://gyazo.com/4e06feef9297a5451d696d060d6b422a)
 
 ## Instalacion en local
 
@@ -57,10 +59,9 @@
 Nota: En caso de querer conectar con el backend de este proyecto, es necesario ir al enlace del repositorio del backend https://github.com/vanbrigo/expense-record.git y seguir los pasos de instalacion.
 
 ## Posibles mejoras
-▪️ <br>
-▪️ <br>
-▪️ <br>
-▪️ <br>
+▪️ Añadir vista para crear nuevas categorias como super admin<br>
+▪️ Mostrar balance anual<br>
+▪️ Programar mail con balance mensual<br>
 
 ## Contacto
 
