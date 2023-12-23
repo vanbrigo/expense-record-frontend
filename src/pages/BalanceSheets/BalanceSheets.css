@@ -30,3 +30,9 @@
 .balanceAmount{
     font-size: 1.5em;
 }
+@media (max-width: 767px) {
+    .oldBalanceBox{
+        height: auto;
+        width: 25em;
+    }
+}

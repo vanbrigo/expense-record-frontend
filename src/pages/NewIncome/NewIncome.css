@@ -61,3 +61,14 @@
     gap:0.5em;
     margin-top: 2em;
 }
+@media (max-width: 767px) {
+    .newIncomeDesign{
+        height: 65em;
+        justify-content: flex-start;
+        padding-top: 0.5em;
+        flex-direction: column;
+        gap:2em;
+        padding-left: 4em;
+    }
+    
+}
