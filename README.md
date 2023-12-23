@@ -19,10 +19,35 @@
 
 ## Vistas
 
-### Home 
+#### Home 
 [![Home](https://i.gyazo.com/2553e1308b25296deae5bda241bb9eb4.gif)](https://gyazo.com/2553e1308b25296deae5bda241bb9eb4)
 
-### Login
+#### Register
+[![Image from Gyazo](https://i.gyazo.com/5338beab2b905575f6bc5e21bddd5543.gif)](https://gyazo.com/5338beab2b905575f6bc5e21bddd5543)
+
+#### Login
+[![Login](https://i.gyazo.com/15da7329f4653af59aeda4a4a2d4f45e.gif)](https://gyazo.com/15da7329f4653af59aeda4a4a2d4f45e)
+
+#### Profile
+[![Image from Gyazo](https://i.gyazo.com/1d34611ea99e7b68b8dd70629c24b6ff.gif)](https://gyazo.com/1d34611ea99e7b68b8dd70629c24b6ff)
+
+#### My balance
+[![Image from Gyazo](https://i.gyazo.com/56fea94264d358dcfe999744de1ce627.gif)](https://gyazo.com/56fea94264d358dcfe999744de1ce627)
+
+#### New income
+
+
+#### New expense
+[![Image from Gyazo](https://i.gyazo.com/e63643e22cd2d844c12c117b310a8755.gif)](https://gyazo.com/e63643e22cd2d844c12c117b310a8755)
+
+#### Search old balance
+[![Image from Gyazo](https://i.gyazo.com/0961ffdde73f44f6c304f90353a29d18.gif)](https://gyazo.com/0961ffdde73f44f6c304f90353a29d18)
+
+### Super admin views
+
+#### All users
+
+#### All categories
 
 ## Instalacion en local
 
