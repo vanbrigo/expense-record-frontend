@@ -42,7 +42,12 @@ export const NewIncome=()=>{
             .catch(error=>console.log(error))
         }
     },[categories])
-
+    
+    useEffect(()=>{
+        if(!token){
+            navigate('/')
+        }
+      },[token]) 
     const errorCheck = (e) => {
         let error = "";
         error = validator(e.target.name, e.target.value);

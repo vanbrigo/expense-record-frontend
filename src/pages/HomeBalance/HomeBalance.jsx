@@ -65,6 +65,12 @@ export const HomeBalance=()=>{
     },[expenses])
 
     useEffect(()=>{
+      if(!token){
+          navigate('/')
+      }
+    },[token]) 
+
+    useEffect(()=>{
       if(incomes.length===0){
         getAllIncomesByDate(month,year,token)
         .then(result=>{

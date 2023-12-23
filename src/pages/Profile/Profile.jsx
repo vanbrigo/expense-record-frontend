@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login, userData } from '../userSlice'
 import { CustomButton } from '../../common/CustomButton/CustomButton'
 import { AvatarPicker } from '../AvatarPicker/AvatarPicker'
+import { useNavigate } from 'react-router-dom'
 
 export const Profile=()=>{
     const rdxCredentials=useSelector(userData)
     const dispatch=useDispatch()
+    const navigate=useNavigate()
     const token= rdxCredentials.credentials.token
     const [userProfile, setUserProfile]=useState()
     const [click, setClick]=useState(true)
@@ -44,7 +46,12 @@ export const Profile=()=>{
             .catch(error=>console.log(error))
         }
     },[userProfile])
-    
+    useEffect(()=>{
+        if(!token){
+            navigate('/')
+        }
+      },[token]) 
+      
     const saveData=()=>{
         updateUserNickname(userProfile,token)
         .then(result=>{

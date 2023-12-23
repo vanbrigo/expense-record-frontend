@@ -51,6 +51,12 @@ export const NewExpense=()=>{
     },[categories])
 
     useEffect(()=>{
+        if(!token){
+            navigate('/')
+        }
+    },[token]) 
+
+    useEffect(()=>{
         const today=dayjs()
         setTodayDate(today.format('YYYY-MMMM-DD'))
     },[])

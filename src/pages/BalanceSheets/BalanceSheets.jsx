@@ -16,9 +16,11 @@ import {
     Legend,
   } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
+import { useNavigate } from 'react-router-dom'
 
 export const BalanceSheets = () => {
   const rdxCredentials = useSelector(userData);
+  const navigate=useNavigate()
   const token = rdxCredentials.credentials.token;
   const [incomes, setIncomes] = useState([]);
   const [data, setData] = useState({});
@@ -43,7 +45,12 @@ export const BalanceSheets = () => {
         text: `Balance: ${balance}`,
       },
     },
-  };
+  }
+  useEffect(()=>{
+    if(!token){
+        navigate('/')
+    }
+  },[token]) 
   useEffect(() => {
     if (incomes.length === 0) {
       getAllIncomes(token)
