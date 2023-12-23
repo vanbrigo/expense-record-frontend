@@ -17,6 +17,13 @@
 - 💻[Contacto](#contacto)
 - 🪪[Creditos](#creditos)
 
+## Vistas
+
+### Home 
+[![Home](https://i.gyazo.com/2553e1308b25296deae5bda241bb9eb4.gif)](https://gyazo.com/2553e1308b25296deae5bda241bb9eb4)
+
+### Login
+
 ## Instalacion en local
 
 1. Clonar el repositorio con el comando `$ git clone [URL del repositorio]`
