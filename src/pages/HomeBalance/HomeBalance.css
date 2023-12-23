@@ -54,3 +54,15 @@
 .redBalance{
     color:rgb(162, 11, 11)
 }
+@media (max-width: 767px) {
+    .allBalancesBox{
+        display: flex;
+        flex-direction: column;
+        gap:1em
+    }
+    .balanceBox{
+        height: auto;
+        width: 25em;
+        padding: 3em;
+    }
+}

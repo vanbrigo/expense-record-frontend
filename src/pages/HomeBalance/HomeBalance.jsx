@@ -24,7 +24,6 @@ export const HomeBalance=()=>{
       totalIncomes:'',
       totalExpenses:''
     })
-
     useEffect(()=>{
         if(expenses.length === 0){
             getAllExpensesByDate(month,year,token)
