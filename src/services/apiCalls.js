@@ -18,6 +18,10 @@ export const getAllIncomesCategories = async(token)=>{
     return await axios.get(`${host}/api/categories-incomes`,{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const getAllIncomes = async(token)=>{
+    return await axios.get(`${host}/api/all-incomes`,{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const getAllBalances = async(token)=>{
     return await axios.get(`${host}/api/all-balances`,{headers:{Authorization:`Bearer ${token}`}})
 }
@@ -32,6 +36,10 @@ export const getAllIncomesByDate = async(month,year,token)=>{
 
 export const getOneBalanceByDate = async(month,year,token)=>{
     return await axios.get(`${host}/api/balance?month=${month}&year=${year}`,{headers:{Authorization:`Bearer ${token}`}})
+}
+
+export const getBalanceByDate = async(month,year,token)=>{
+    return await axios.get(`${host}/api/balance-date?month=${month}&year=${year}`,{headers:{Authorization:`Bearer ${token}`}})
 }
 
 export const getUserProfile = async(token)=>{

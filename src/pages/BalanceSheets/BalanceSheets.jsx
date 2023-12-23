@@ -1,59 +1,116 @@
 import './BalanceSheets.css'
 import { Container } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
-import { getAllBalances, getOneBalanceByDate } from '../../services/apiCalls'
+import { getAllBalances, getAllIncomes, getBalanceByDate, getOneBalanceByDate } from '../../services/apiCalls'
 import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
 import dayjs from 'dayjs'
+import { all } from 'axios'
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js'
+import { Bar } from 'react-chartjs-2'
 
 export const BalanceSheets=()=>{
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
-    const [balances,setBalances]=useState([])
-    const [oneBalance,setOneBalance]=useState()
+    const [incomes, setIncomes]=useState([])
+    const [data, setData]=useState({})
+    const [balance, setBalance]=useState()
     const [date,setDate]=useState()
+
+    ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        BarElement,
+        Title,
+        Tooltip,
+        Legend
+    )
+    const options = {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: `Balance: ${balance}`,
+          },
+        },
+      }
     useEffect(()=>{
-        if(balances.length===0){
-            getAllBalances(token)
+        if(incomes.length===0){
+            getAllIncomes(token)
             .then(result=>{
-                setBalances(result.data.data)
+                const allIncomes=result.data.data
+                const dateIncomes= allIncomes.map(income=>{
+                    return(dayjs(income.date).format('MMMM-YYYY'))
+                })
+                const incomesSet= new Set(dateIncomes)
+                setIncomes(incomesSet)
             })
             .catch(error=>console.log(error))
         }
-    },[balances])
+    },[incomes])
     useEffect(()=>{
         if(date){
             const month=dayjs(date).format('MM')
             const year= dayjs(date).format('YYYY')
-            getOneBalanceByDate(month,year,token)
-            .then(result=>setOneBalance(result.data.data[0]))
+            getBalanceByDate(month,year,token)
+            .then(result=>{
+                const dataResult=result.data.data
+                const dataUpdated={
+                    labels:[date],
+                    datasets: [
+                        {
+                          label: 'Incomes',
+                          data: [dataResult.incomes],
+                          backgroundColor: 'rgb(22, 136, 121)',
+                        },
+                        {
+                          label: 'Expenses',
+                          data: [dataResult.expenses],
+                          backgroundColor: 'rgb(77, 22, 136)',
+                        },
+                      ],
+                }
+                console.log(typeof(dataResult.expenses))
+                setData(dataUpdated)
+                setBalance(dataResult.balance)
+            })
             .catch(error=>console.log(error))
         }
     },[date])
-    useEffect(()=>{
-        
-    })
+    
     const functionHandler = (e) => {
         setDate(e.target.value)
     }
     return(
     <Container fluid className='balanceSheetsDesign'>
-        {balances.length>0
+        {incomes.size>0
         ?(<>
         <select name='date' onChange={functionHandler}>
             <option>Select a date</option>
-            {balances.map(element=>{
+            {Array.from(incomes).map((element,index)=>{
                 return(
-                    <option key={element.id}>{dayjs(element.date).format('MMMM-YYYY')}</option>
+                    <option key={index}>{element}</option>
                 )
             })}
         </select>
-        {oneBalance &&
+        {data && data.labels && data.datasets &&
         <div className='oldBalanceBox'>
-        <div className='balanceBoxInside'>{dayjs(oneBalance.date).format('MMMM-YYYY')}</div>
-        <div className='balanceBoxInside balanceAmount'><span>Balance</span> {oneBalance.balance}</div>
-        <div className='balanceBoxInside'><span>Incomes</span> {oneBalance.income}</div>
-        <div className='balanceBoxInside'><span>Expenses</span> {oneBalance.expenses}</div>
+        {/* <div className='balanceBoxInside'>{dayjs(oneBalance.date).format('MMMM-YYYY')}</div> */}
+        <Bar data={data} options={options}/>
+        {/* <div className='balanceBoxInside balanceAmount'><span>Balance</span> {oneBalance.balance}</div>
+        <div className='balanceBoxInside'><span>Incomes</span> {oneBalance.incomes}</div>
+        <div className='balanceBoxInside'><span>Expenses</span> {oneBalance.expenses}</div> */}
         </div>
         }
         </>)
