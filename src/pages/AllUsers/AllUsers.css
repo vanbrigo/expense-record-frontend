@@ -1,12 +1,13 @@
 .allUsersdesign{
     width: 100vw;
-    height: 86vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 2em;
     background-color: aliceblue;
+    padding-bottom: 2em;
 }
 .allUsersBox{
     height: auto;
@@ -44,6 +45,9 @@
     cursor: pointer;
 }
 @media (max-width: 767px) {
+    .allUsersdesign{
+        height: auto;
+    }
     .userBox{
         height: auto;
         width: 16em;
