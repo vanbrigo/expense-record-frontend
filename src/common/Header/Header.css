@@ -31,4 +31,24 @@
     gap:1em;
     margin-right: 2em;    
 }
-
+@media (max-width: 767px) {
+    .headerDesign{
+        height: auto;
+        overflow-x: hidden;
+        flex-direction: column;
+        padding-bottom: 1em;
+    }
+    .logoHeader{
+        height: 14vh;
+        width: 70vw; 
+        margin-left: 0;
+    }
+    .headerBox{
+        height: auto;
+        width:80vw ;
+        gap:0.5em;   
+        flex-direction: column;
+        margin-right: 0; 
+        background-color: rgb(194, 219, 241);
+    }
+}
