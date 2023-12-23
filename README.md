@@ -62,6 +62,7 @@ Nota: En caso de querer conectar con el backend de este proyecto, es necesario i
 ▪️ Añadir vista para crear nuevas categorias como super admin<br>
 ▪️ Mostrar balance anual<br>
 ▪️ Programar mail con balance mensual<br>
+▪️ Añadir opcion de vista de balance en lista<br>
 
 ## Contacto
 
