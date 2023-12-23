@@ -42,3 +42,21 @@
     font-weight: 800;
     padding-bottom: 0.5em;
 }
+@media (max-width: 767px) {
+    .allCategoriesDesign{
+        overflow-x: hidden;
+    }
+    .allCategoriesBox{
+        width: 18em;
+    }
+    .categoryBoxSuperAdmin{
+        height: auto;
+        width: 12em;
+        flex-direction: column;
+        font-size: 1.3em;
+    }
+    .boxInsideCategories{
+        width: auto;
+        justify-content: center;
+    }
+}
