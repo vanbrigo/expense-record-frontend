@@ -43,9 +43,6 @@ export const Register=()=>{
                 setTimeout(()=>{
                     navigate('/login')
                 }, 2000);
-                
-            console.log(resultado.data.message)
-
     })
         .catch(error=> console.log(error))
     }
