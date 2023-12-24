@@ -37,28 +37,9 @@
 .secondtLine{
     font-weight: 600;
 }
-@media (max-width: 767px) {
-    .homeDesign{
-        align-items: flex-start;
-        padding-top: 2em;
-    }
-    .leftBox{
-        height: 14em;
-        width: 7em;
-    }
-    .centerBox{
-        height: 15em;
-        width: 18em;
-        display: flex;
-        padding-top: 2em;
-    }
-    .firstLine{
-        height: 3em;
-        width: 10em;
-        font-size: 1.2em;
-        text-align: left;
-        font-weight: 300;
-    }
+.imgHelp{
+    height: 35em;
+    width: 40em;
 }
 .homeFooterRow{
     width: 100vw;
@@ -83,3 +64,69 @@
     padding-bottom: 2em;
     padding-right: 2em;
 }
+.leftSecondBox{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+}
+.helpName{
+    font-weight: 800;
+    font-size: 2em;
+}
+.secondHelpName{
+    font-weight: 400;
+    font-size: 1.4em;
+}
+.boxInsideHelp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5em;
+}
+@media (max-width: 767px) {
+    .homeDesign{
+        align-items: flex-start;
+        padding-top: 2em;
+    }
+    .leftBox{
+        height: 14em;
+        width: 7em;
+    }
+    .centerBox{
+        height: 15em;
+        width: 15em;
+        display: flex;
+        padding-top: 2em;
+    }
+    .firstLine{
+        height: 3em;
+        width: 10em;
+        font-size: 1.2em;
+        text-align: left;
+        font-weight: 300;
+    }
+    .imgHelp{
+        width: 15em;
+        height: auto;
+    }
+    .leftSecondBox{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top:2em
+    }
+    .boxInsideHelp{
+        padding-top: 1em;
+    }
+    .footerBox{
+        padding-bottom: 0.5em;
+        padding-right: 0.5em;
+        padding-left: 0;
+    }
+    .homeFirstRow{
+        height: auto;
+    }
+}
+
+
