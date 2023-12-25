@@ -11,13 +11,16 @@ export const Home=()=>{
         </Row>
         <Row className='homeFirstRow'>
             <div className='leftSecondBox'>
-                <img className='imgHelp' src="./src/assets/images/xpenses-help.png" alt="help-xpenses"/>
+                <img 
+                className='imgHelp' 
+                src="./src/assets/images/xpenses-help.png" 
+                alt="help-xpenses"/>
                 <div className='boxInsideHelp'>
                 <span className='helpName'>Help Center.</span><br/><span className='secondHelpName'>Need to ask us how to use? Simply get in touch with us.</span>
                 <img 
                 width="40" 
-                height="40" s
-                rc="https://img.icons8.com/ios-filled/50/1A1A1A/circled-envelope.png" 
+                height="40" 
+                src="https://img.icons8.com/ios-filled/50/1A1A1A/circled-envelope.png" 
                 alt="circled-envelope"/>
                 </div>
             </div>
