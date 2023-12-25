@@ -39,7 +39,10 @@
 }
 .imgHelp{
     height: 35em;
-    width: 40em;
+    width: 35em;
+    background: url(../../assets/images/xpenses-help.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .homeFooterRow{
     width: 100vw;
@@ -106,10 +109,6 @@
         text-align: left;
         font-weight: 300;
     }
-    .imgHelp{
-        width: 15em;
-        height: auto;
-    }
     .leftSecondBox{
         flex-direction: column;
         align-items: center;
@@ -126,6 +125,10 @@
     }
     .homeFirstRow{
         height: auto;
+    }
+    .imgHelp{
+        height: 18em;
+        width: 18em;
     }
 }
 

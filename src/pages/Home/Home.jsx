@@ -11,10 +11,8 @@ export const Home=()=>{
         </Row>
         <Row className='homeFirstRow'>
             <div className='leftSecondBox'>
-                <img 
-                className='imgHelp' 
-                src="./src/assets/images/xpenses-help.png" 
-                alt="help-xpenses"/>
+                <div className='boxInsideHelp imgHelp'>
+                </div>
                 <div className='boxInsideHelp'>
                 <span className='helpName'>Help Center.</span><br/><span className='secondHelpName'>Need to ask us how to use? Simply get in touch with us.</span>
                 <img 
