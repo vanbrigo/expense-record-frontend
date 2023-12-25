@@ -11,19 +11,35 @@ export const Home=()=>{
         </Row>
         <Row className='homeFirstRow'>
             <div className='leftSecondBox'>
-                <img className='imgHelp' src="src/assets/images/xpenses-help.png" alt="help-xpenses"/>
+                <img className='imgHelp' src="./src/assets/images/xpenses-help.png" alt="help-xpenses"/>
                 <div className='boxInsideHelp'>
                 <span className='helpName'>Help Center.</span><br/><span className='secondHelpName'>Need to ask us how to use? Simply get in touch with us.</span>
-                <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/1A1A1A/circled-envelope.png" alt="circled-envelope"/>
+                <img 
+                width="40" 
+                height="40" s
+                rc="https://img.icons8.com/ios-filled/50/1A1A1A/circled-envelope.png" 
+                alt="circled-envelope"/>
                 </div>
             </div>
         </Row>
         <Row className='homeFooterRow'>
             <div className='footerBox'></div>
             <div className='footerBox'>
-            <img width="55" height="55" src="https://img.icons8.com/glyph-neue/64/1A1A1A/twitter-circled.png" alt="twitter-circled"/>
-            <img width="52" height="52" src="https://img.icons8.com/ios-filled/50/1A1A1A/circled-envelope.png" alt="circled-envelope"/>
-            <img width="55" height="55" src="https://img.icons8.com/glyph-neue/64/000000/facebook-circled.png" alt="facebook-circled"/>
+            <img 
+            width="55" 
+            height="55" 
+            src="https://img.icons8.com/glyph-neue/64/1A1A1A/twitter-circled.png" 
+            alt="twitter-circled"/>
+            <img 
+            width="52" 
+            height="52" 
+            src="https://img.icons8.com/ios-filled/50/1A1A1A/circled-envelope.png" 
+            alt="circled-envelope"/>
+            <img 
+            width="55" 
+            height="55" 
+            src="https://img.icons8.com/glyph-neue/64/000000/facebook-circled.png" 
+            alt="facebook-circled"/>
             </div>
         </Row>
     </Container>)
