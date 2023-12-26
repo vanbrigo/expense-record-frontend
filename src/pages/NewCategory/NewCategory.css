@@ -1,0 +1,11 @@
+.newCategoryDesign{
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2em;
+    background-color: aliceblue;
+    padding-bottom: 2em;
+}

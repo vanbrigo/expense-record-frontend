@@ -11,6 +11,7 @@ import { AllUsers } from "../AllUsers/AllUsers";
 import { AllCategories } from "../AllCategories/AllCategories";
 import { MyIncomes } from "../MyIncomes/MyIncomes";
 import { MyExpenses } from "../MyExpenses/MyExpenses";
+import { NewCategory } from "../NewCategory/NewCategory";
 
 
 
@@ -31,6 +32,7 @@ export const Body=()=>{
             <Route path="/my-record" element={<BalanceSheets />}/>
             <Route path="/all-users" element={<AllUsers />}/>
             <Route path="/categories" element={<AllCategories />}/>
+            <Route path="/new-category" element={<NewCategory />}/>
         </Routes>
         </>
     )

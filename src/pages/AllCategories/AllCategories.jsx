@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
 import { deleteCategoryAsSuperAdmin, getAllCategories } from '../../services/apiCalls'
+import { HeaderButton } from '../../common/HeaderButton/HeaderButton'
 
 export const AllCategories=()=>{
     const [categories, setCategories]=useState([])
@@ -29,7 +30,8 @@ export const AllCategories=()=>{
     }
     return(<Container fluid className='allCategoriesDesign'>
         <span className='viewNameSuperAdmin'>CATEGORIES</span>
-        <div>{msgDelete}</div>
+        <HeaderButton path="/" title="Add category" />
+        {/* <div>{msgDelete}</div> */}
         {categories.length > 0
         ?(<div className='allCategoriesBox'>
         {categories.map(category=>{
