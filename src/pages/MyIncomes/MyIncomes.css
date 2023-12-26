@@ -40,3 +40,13 @@
     justify-content: space-between;
     padding-left: 2em;
 }
+.editButtonMyIncome{
+    opacity: 0;
+}
+.editButtonMyIncome:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.categoryMyIncome:hover{
+    cursor: pointer;
+}
