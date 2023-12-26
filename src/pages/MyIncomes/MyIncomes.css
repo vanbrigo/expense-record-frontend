@@ -7,26 +7,36 @@
     gap:2em;
     padding-top: 2em;
     background-color: aliceblue;
+    padding-right: 5em;
 }
 .myIncomesBox{
-    width: 35em;
+    width: 37em;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    background-color: aqua;
-    gap:1em
+    background-color: #5fcaa3;
+    gap:1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 .myIncomesBoxInside{
-    width: 30em;
+    width: 35em;
+    height: 2em;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(195, 195, 226);
+    /* background-color: rgb(195, 195, 226); */
+    gap:1em;
+    background-color: aliceblue;
 }
 .singleBoxMyIncome{
     display: flex;
     width: 10em;
     justify-content: flex-start;
-    background-color: bisque;
+    /* background-color: bisque; */
+}
+.amountMyIncome{
+    justify-content: space-between;
+    padding-left: 2em;
 }
