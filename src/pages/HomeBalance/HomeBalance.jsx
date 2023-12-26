@@ -11,8 +11,8 @@ import { PieChart } from '../../common/PieChart/PieChart'
 
 export const HomeBalance=()=>{
     const rdxCredentials=useSelector(userData)
-    const navigate= useNavigate()
     const token=rdxCredentials.credentials.token
+    const navigate= useNavigate()
     const [expenses, setExpenses]=useState([])
     const [incomes, setIncomes]=useState([])
     const date=dayjs()
