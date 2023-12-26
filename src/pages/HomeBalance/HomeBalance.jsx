@@ -116,10 +116,26 @@ export const HomeBalance=()=>{
         <div className="allBalancesBox">
           {incomes.length > 0 ? (
             <div className="balanceBox">
-              <span className='typeBalanceName'>Incomes</span>
+              <HeaderButton path="/" title="Incomes" />
               <span className='typeBalanceName'>TOTAL: {totalAmounts.totalIncomes}</span>
               <PieChart data={dataPieChartIncomes} />
-              <div className="addIncomeBox">
+              
+            </div>
+          ) : (
+            <></>
+          )}
+          {expenses.length > 0 ? (
+            <div className="balanceBox">
+              <HeaderButton path="/" title="Expenses" />
+              <span className='typeBalanceName'>TOTAL: {totalAmounts.totalExpenses}</span>
+              <PieChart data={dataPieChart} />
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div className='buttonsBox'>
+        <div className="addIncomeBox">
                 <img
                   onClick={() => navigate("/new-income")}
                   width="24"
@@ -129,16 +145,7 @@ export const HomeBalance=()=>{
                 />
                 <HeaderButton path="/new-income" title="Add income" />
               </div>
-            </div>
-          ) : (
-            <></>
-          )}
-          {expenses.length > 0 ? (
-            <div className="balanceBox">
-              <span className='typeBalanceName'>Expenses</span>
-              <span className='typeBalanceName'>TOTAL: {totalAmounts.totalExpenses}</span>
-              <PieChart data={dataPieChart} />
-              <div className="addIncomeBox">
+          <div className="addIncomeBox">
                 <img
                   onClick={() => navigate("/new-expense")}
                   width="24"
@@ -148,11 +155,7 @@ export const HomeBalance=()=>{
                 />
                 <HeaderButton path="/new-expense" title="Add expense" />
               </div>
-            </div>
-          ) : (
-            <></>
-          )}
-        </div>
+          </div>
       </Container>
     );
 }

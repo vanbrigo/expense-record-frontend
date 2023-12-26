@@ -13,8 +13,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 35em;
-    width: 35em;
+    height: 30em;
+    width: 30em;
     padding: 3em;
 }
 .balanceButtonsBox{
@@ -54,9 +54,15 @@
 .redBalance{
     color:rgb(162, 11, 11)
 }
+.buttonsBox{
+    display: flex;
+    width: 40em;
+    justify-content: space-between;
+}
 @media (max-width: 767px) {
     .balanceDesign{
         height: auto;
+        overflow-y: hidden;
     }
     .allBalancesBox{
         display: flex;
@@ -67,5 +73,12 @@
         height: auto;
         width: 25em;
         padding: 3em;
+    }
+    .buttonsBox{
+        flex-direction: column;
+        width: 10em;
+        justify-content: center;
+        gap:1em;
+        padding-bottom: 2em;
     }
 }
