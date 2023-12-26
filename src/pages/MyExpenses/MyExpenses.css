@@ -43,3 +43,6 @@
 .categoryMyExpense:hover{
     cursor: pointer;
 }
+.amountMyExpenses:hover{
+    cursor: pointer;
+}

@@ -5,7 +5,8 @@ import { Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { userData } from '../userSlice'
-import { deleteExpense, getAllExpensesByDate, getAllExpensesCategories, updateCategoryExpense } from '../../services/apiCalls'
+import { deleteExpense, getAllExpensesByDate, getAllExpensesCategories, updateAmountExpense, updateCategoryExpense } from '../../services/apiCalls'
+import { CustomNumberInput } from '../../common/CustomNumberInput/CustomNumberInput'
 
 export const MyExpenses=()=>{
     const [expenses, setExpenses]=useState([])
@@ -17,6 +18,8 @@ export const MyExpenses=()=>{
     const token=rdxCredentials.credentials.token
     const [clickExpense, setClickExpense]=useState(null)
     const [categories,setCategories]=useState([])
+    const [clickAmount,setClickAmount]=useState(null)
+    const [amount,setAmount]=useState()
 
     useEffect(()=>{
         if(expenses.length===0){
@@ -57,6 +60,20 @@ export const MyExpenses=()=>{
         })
         .catch(error=>console.log(error))
     } 
+    const functionHandler=(e)=>{
+      setAmount((prevState)=>({
+          ...prevState,
+          amount:e.target.value
+      }))
+  }
+  const functionUpdateAmount=()=>{
+      updateAmountExpense(clickAmount,amount,token)
+      .then(result=>{
+          setExpenses([])
+          setClickAmount(null)
+      })
+      .catch(error=>console.log(error))
+  }
     return (
       <Container fluid className="myExpensesDesign">
         <div>
@@ -118,13 +135,49 @@ export const MyExpenses=()=>{
                     {dayjs(expense.date).format("DD-MMMM")}
                   </div>
                   <div className="singleBoxMyExpenses amountMyExpenses">
-                    <img
+                  {clickAmount === expense.id
+                      ? (
+                        <>
+                          <CustomNumberInput
+                            name={"amount"}
+                            style={"incomeInput"}
+                            max={"100000"}
+                            placeholder={"insert amount"}
+                            functionProp={functionHandler}
+                          />
+                          <img 
+                          onClick={functionUpdateAmount}
+                          width="30" 
+                          height="30" 
+                          src="https://img.icons8.com/ios-glyphs/30/40C057/ok--v1.png" 
+                          alt="ok--v1"/>
+                        </>
+                      ) : (
+                        <>
+                          <img
+                            width="25"
+                            height="25"
+                            src="https://img.icons8.com/windows/32/1A1A1A/euro-pound-exchange.png"
+                            alt="euro-pound-exchange"
+                          />
+                          {expense.amount}
+                          <img
+                            width="20"
+                            height="20"
+                            className="editButtonMyIncome"
+                            onClick={() => setClickAmount(expense.id)}
+                            src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png"
+                            alt="pencil"
+                          />
+                        </>
+                      )}
+                    {/* <img
                       width="25"
                       height="25"
                       src="https://img.icons8.com/windows/32/1A1A1A/euro-pound-exchange.png"
                       alt="euro-pound-exchange"
                     />
-                    {expense.amount}
+                    {expense.amount} */}
                   </div>
                   <div>
                     <img
