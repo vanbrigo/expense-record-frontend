@@ -62,6 +62,10 @@ export const updateCategoryIncome = async(id,body,token)=>{
     return await axios.put(`${host}/api/edit-income-category/${id}`,body,{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const updateCategoryExpense = async(id,body,token)=>{
+    return await axios.put(`${host}/api/edit-expense-category/${id}`,body,{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const activateUser = async(id,token)=>{
     return await axios.put(`${host}/api/user-activate/${id}`,{},{headers:{Authorization:`Bearer ${token}`}})
 }

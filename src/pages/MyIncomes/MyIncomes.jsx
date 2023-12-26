@@ -17,7 +17,6 @@ export const MyIncomes=()=>{
     const token=rdxCredentials.credentials.token
     const [clickIncome, setClickIncome]=useState(null)
     const [categories,setCategories]=useState([])
-
     useEffect(()=>{
         if(incomes.length===0){
             getAllIncomesByDate(month,year,token)
@@ -107,15 +106,6 @@ export const MyIncomes=()=>{
                         alt="pencil"
                       />
                       </>)}
-                      {/* {income.category.name}
-                      <img
-                        width="20"
-                        height="20"
-                        className="editButtonMyIncome"
-                        // onClick={() => updateCategory(income.category.id)}
-                        src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png"
-                        alt="pencil"
-                      /> */}
                     </div>
                     <div className="singleBoxMyIncome">{dayjs(income.date).format('DD-MMMM')}</div>
                     <div className="singleBoxMyIncome amountMyIncome">
