@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { userData } from '../userSlice'
-import { deleteExpense, getAllExpensesByDate } from '../../services/apiCalls'
+import { deleteExpense, getAllExpensesByDate, getAllExpensesCategories, updateCategoryExpense } from '../../services/apiCalls'
 
 export const MyExpenses=()=>{
     const [expenses, setExpenses]=useState([])
@@ -15,6 +15,8 @@ export const MyExpenses=()=>{
     const year=date.year()
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
+    const [clickExpense, setClickExpense]=useState(null)
+    const [categories,setCategories]=useState([])
 
     useEffect(()=>{
         if(expenses.length===0){
@@ -27,10 +29,32 @@ export const MyExpenses=()=>{
         }
     },[expenses])
 
+    useEffect(()=>{
+      if(categories.length===0){
+          getAllExpensesCategories(token)
+          .then(result=>{
+              setCategories(result.data.data)
+              console.log(result.data.data)
+          })
+          .catch(error=>console.log(error))
+      }
+  },[clickExpense])
+  const updateCategory=(id)=>{
+    setClickExpense(id)
+  }
+    const functionUpdate = (e) => {
+    const category={category:e.target.value}
+    updateCategoryExpense(clickExpense,category,token)
+    .then(result=>{
+        setClickExpense(null)
+        setExpenses([])
+    })
+    .catch(error=>console.log(error))
+}
+
     const functionDeleteExpense=(id)=>{
         deleteExpense(id,token)
         .then(result=>{
-            // setMsgDelete(result.data.message)
             setExpenses([])
         })
         .catch(error=>console.log(error))
@@ -59,8 +83,28 @@ export const MyExpenses=()=>{
                         alt="category_icon"
                       ></img>
                     </div>
-                    <div className="singleBoxMyExpenses">
-                      {expense.category.name}
+                    <div className="singleBoxMyExpenses categoryMyExpense">
+                    {clickExpense===expense.id
+                      ?(<>
+                      <select key={expense.category.id} onChange={functionUpdate}>
+                        <option>Select new category</option>
+                        {categories.map(category=>{
+                            return(<option key={category.id} value={category.id}>{category.name}</option>)
+                        })}
+                      </select>
+                      </>) 
+                      :(<>
+                       {expense.category.name}
+                      <img
+                        width="20"
+                        height="20"
+                        className="editButtonMyIncome"
+                        onClick={() => updateCategory(expense.id)}
+                        src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png"
+                        alt="pencil"
+                      />
+                      </>)}
+                      {/* {expense.category.name} */}
                     </div>
                     <div className="singleBoxMyExpenses">{dayjs(expense.date).format('DD-MMMM')}</div>
                     <div className="singleBoxMyExpenses amountMyExpenses">
