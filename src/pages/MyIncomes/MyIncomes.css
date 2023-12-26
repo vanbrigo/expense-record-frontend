@@ -38,7 +38,7 @@
 }
 .amountMyIncome{
     justify-content: space-between;
-    padding-left: 2em;
+    padding-left: 1em;
 }
 .editButtonMyIncome{
     opacity: 0;
@@ -47,6 +47,6 @@
     opacity: 1;
     cursor: pointer;
 }
-.categoryMyIncome:hover{
+.categoryMyIncome:hover,.amountMyIncome{
     cursor: pointer;
 }

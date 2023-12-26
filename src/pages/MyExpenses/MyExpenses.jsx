@@ -23,7 +23,6 @@ export const MyExpenses=()=>{
             getAllExpensesByDate(month,year,token)
             .then(result=>{
                 setExpenses(result.data.data)
-                console.log(result.data.data)
             })
             .catch(error=>console.log(error))
         }
@@ -34,7 +33,6 @@ export const MyExpenses=()=>{
           getAllExpensesCategories(token)
           .then(result=>{
               setCategories(result.data.data)
-              console.log(result.data.data)
           })
           .catch(error=>console.log(error))
       }
@@ -59,78 +57,92 @@ export const MyExpenses=()=>{
         })
         .catch(error=>console.log(error))
     } 
-    return(<Container fluid className='myExpensesDesign'>
+    return (
+      <Container fluid className="myExpensesDesign">
         <div>
-        <img 
-        className='backIcon'
-        onClick={()=>navigate('/home')}
-        width="50" 
-        height="50" 
-        src="https://img.icons8.com/ios/50/1A1A1A/circled-left-2.png" 
-        alt="circled-left-2"/>
+          <img
+            className="backIcon"
+            onClick={() => navigate("/home")}
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/1A1A1A/circled-left-2.png"
+            alt="circled-left-2"
+          />
         </div>
-        {
-            expenses.length>0 
-            ?(<div className="myExpensesBox">
-            {expenses.map(expense=>{
-                return (
-                  <div className="myExpensesBoxInside" key={expense.id}>
-                    <div>
-                      <img
-                        width="30"
-                        height="30"
-                        src={expense.category.icon_url}
-                        alt="category_icon"
-                      ></img>
-                    </div>
-                    <div className="singleBoxMyExpenses categoryMyExpense">
-                    {clickExpense===expense.id
-                      ?(<>
-                      <select key={expense.category.id} onChange={functionUpdate}>
-                        <option>Select new category</option>
-                        {categories.map(category=>{
-                            return(<option key={category.id} value={category.id}>{category.name}</option>)
-                        })}
-                      </select>
-                      </>) 
-                      :(<>
-                       {expense.category.name}
-                      <img
-                        width="20"
-                        height="20"
-                        className="editButtonMyIncome"
-                        onClick={() => updateCategory(expense.id)}
-                        src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png"
-                        alt="pencil"
-                      />
-                      </>)}
-                      {/* {expense.category.name} */}
-                    </div>
-                    <div className="singleBoxMyExpenses">{dayjs(expense.date).format('DD-MMMM')}</div>
-                    <div className="singleBoxMyExpenses amountMyExpenses">
-                      <img
-                        width="25"
-                        height="25"
-                        src="https://img.icons8.com/windows/32/1A1A1A/euro-pound-exchange.png"
-                        alt="euro-pound-exchange"
-                      />
-                      {expense.amount}
-                    </div>
-                    <div>
-                      <img
-                        onClick={()=>functionDeleteExpense(expense.id)}
-                        className="deleteIcon"
-                        width="24"
-                        height="24"
-                        src="https://img.icons8.com/material-outlined/24/1A1A1A/waste.png"
-                        alt="waste"
-                      />{" "}
-                    </div>
+        {expenses.length > 0 ? (
+          <div className="myExpensesBox">
+            {expenses.map((expense) => {
+              return (
+                <div className="myExpensesBoxInside" key={expense.id}>
+                  <div>
+                    <img
+                      width="30"
+                      height="30"
+                      src={expense.category.icon_url}
+                      alt="category_icon"
+                    ></img>
                   </div>
-                );
+                  <div className="singleBoxMyExpenses categoryMyExpense">
+                    {clickExpense === expense.id ? (
+                      <>
+                        <select
+                          key={expense.category.id}
+                          onChange={functionUpdate}
+                        >
+                          <option>Select new category</option>
+                          {categories.map((category) => {
+                            return (
+                              <option key={category.id} value={category.id}>
+                                {category.name}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      </>
+                    ) : (
+                      <>
+                        {expense.category.name}
+                        <img
+                          width="20"
+                          height="20"
+                          className="editButtonMyIncome"
+                          onClick={() => updateCategory(expense.id)}
+                          src="https://img.icons8.com/parakeet-line/48/1A1A1A/pencil.png"
+                          alt="pencil"
+                        />
+                      </>
+                    )}
+                    {/* {expense.category.name} */}
+                  </div>
+                  <div className="singleBoxMyExpenses">
+                    {dayjs(expense.date).format("DD-MMMM")}
+                  </div>
+                  <div className="singleBoxMyExpenses amountMyExpenses">
+                    <img
+                      width="25"
+                      height="25"
+                      src="https://img.icons8.com/windows/32/1A1A1A/euro-pound-exchange.png"
+                      alt="euro-pound-exchange"
+                    />
+                    {expense.amount}
+                  </div>
+                  <div>
+                    <img
+                      onClick={() => functionDeleteExpense(expense.id)}
+                      className="deleteIcon"
+                      width="24"
+                      height="24"
+                      src="https://img.icons8.com/material-outlined/24/1A1A1A/waste.png"
+                      alt="waste"
+                    />{" "}
+                  </div>
+                </div>
+              );
             })}
-            </div>)
-            :(<>Nothing here</>)
-        }
-    </Container>)
+          </div>
+        ) : (
+          <>Nothing here</>
+        )}
+      </Container>
+    );
 }
