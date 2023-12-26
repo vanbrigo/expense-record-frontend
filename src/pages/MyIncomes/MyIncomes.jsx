@@ -3,7 +3,7 @@ import "./MyIncomes.css"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { userData } from "../userSlice"
-import { getAllIncomesByDate } from "../../services/apiCalls"
+import { deleteIncome, getAllIncomesByDate } from "../../services/apiCalls"
 import dayjs from "dayjs"
 import { useNavigate } from "react-router-dom"
 
@@ -27,11 +27,11 @@ export const MyIncomes=()=>{
         }
     },[incomes])
 
-    const deleteIncome=(id)=>{
+    const functionDeleteIncome=(id)=>{
         deleteIncome(id,token)
         .then(result=>{
             // setMsgDelete(result.data.message)
-            setCategories([])
+            setIncomes([])
         })
         .catch(error=>console.log(error))
     } 
@@ -74,7 +74,7 @@ export const MyIncomes=()=>{
                     </div>
                     <div>
                       <img
-                        // onClick={()=>deleteIncome(income.id)}
+                        onClick={()=>functionDeleteIncome(income.id)}
                         className="deleteIcon"
                         width="24"
                         height="24"
