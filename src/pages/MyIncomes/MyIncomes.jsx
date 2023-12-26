@@ -15,6 +15,7 @@ export const MyIncomes=()=>{
     const year=date.year()
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
+    const [clickCategory, setClickCategory]=useState(null)
 
     useEffect(()=>{
         if(incomes.length===0){

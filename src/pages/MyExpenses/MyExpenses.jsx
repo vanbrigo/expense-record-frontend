@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { userData } from '../userSlice'
-import { getAllExpensesByDate } from '../../services/apiCalls'
+import { deleteExpense, getAllExpensesByDate } from '../../services/apiCalls'
 
 export const MyExpenses=()=>{
     const [expenses, setExpenses]=useState([])
@@ -26,6 +26,15 @@ export const MyExpenses=()=>{
             .catch(error=>console.log(error))
         }
     },[expenses])
+
+    const functionDeleteExpense=(id)=>{
+        deleteExpense(id,token)
+        .then(result=>{
+            // setMsgDelete(result.data.message)
+            setExpenses([])
+        })
+        .catch(error=>console.log(error))
+    } 
     return(<Container fluid className='myExpensesDesign'>
         <div>
         <img 
@@ -65,7 +74,7 @@ export const MyExpenses=()=>{
                     </div>
                     <div>
                       <img
-                        // onClick={()=>functionDeleteIncome(income.id)}
+                        onClick={()=>functionDeleteExpense(expense.id)}
                         className="deleteIcon"
                         width="24"
                         height="24"
