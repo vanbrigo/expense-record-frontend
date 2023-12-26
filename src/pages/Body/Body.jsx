@@ -10,6 +10,7 @@ import { Home } from "../Home/Home";
 import { AllUsers } from "../AllUsers/AllUsers";
 import { AllCategories } from "../AllCategories/AllCategories";
 import { MyIncomes } from "../MyIncomes/MyIncomes";
+import { MyExpenses } from "../MyExpenses/MyExpenses";
 
 
 
@@ -26,6 +27,7 @@ export const Body=()=>{
             <Route path="/new-expense" element={<NewExpense />}/>
             <Route path="/new-income" element={<NewIncome />}/>
             <Route path="/my-incomes" element={<MyIncomes />}/>
+            <Route path="/my-expenses" element={<MyExpenses />}/>
             <Route path="/my-record" element={<BalanceSheets />}/>
             <Route path="/all-users" element={<AllUsers />}/>
             <Route path="/categories" element={<AllCategories />}/>

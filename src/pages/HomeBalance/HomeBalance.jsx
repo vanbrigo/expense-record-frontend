@@ -126,7 +126,7 @@ export const HomeBalance=()=>{
           )}
           {expenses.length > 0 ? (
             <div className="balanceBox">
-              <HeaderButton path="/" title="Expenses" />
+              <HeaderButton path="/my-expenses" title="Expenses" />
               <span className='typeBalanceName'>TOTAL: {totalAmounts.totalExpenses}</span>
               <PieChart data={dataPieChart} />
             </div>
