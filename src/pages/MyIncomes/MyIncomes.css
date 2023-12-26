@@ -1,0 +1,32 @@
+.myIncomesDesign{
+    height: 86vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    gap:2em;
+    padding-top: 2em;
+    background-color: aliceblue;
+}
+.myIncomesBox{
+    width: 35em;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background-color: aqua;
+    gap:1em
+}
+.myIncomesBoxInside{
+    width: 30em;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(195, 195, 226);
+}
+.singleBoxMyIncome{
+    display: flex;
+    width: 10em;
+    justify-content: flex-start;
+    background-color: bisque;
+}

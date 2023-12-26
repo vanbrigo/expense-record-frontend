@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { userData } from "../userSlice"
 import { getAllIncomesByDate } from "../../services/apiCalls"
+import dayjs from "dayjs"
 
 export const MyIncomes=()=>{
     const [incomes, setIncomes]=useState([])
@@ -16,21 +17,25 @@ export const MyIncomes=()=>{
     useEffect(()=>{
         if(incomes.length===0){
             getAllIncomesByDate(month,year,token)
-            .then(result=>setIncomes(result.data.data))
+            .then(result=>{
+                setIncomes(result.data.data)
+                console.log(result.data.data)
+            })
             .catch(error=>console.log(error))
         }
     },[incomes])
     return(<Container fluid className="myIncomesDesign">
         {
             incomes.length>0 
-            ?(<>
+            ?(<div className="myIncomesBox">
             {incomes.map(income=>{
-                return(<div key={income.id}>
-                    <div>{income.category}</div>
-                    <div>{income.amount}</div>
+                return(<div className='myIncomesBoxInside' key={income.id}>
+                    <div className="singleBoxMyIncome">{income.category.name}</div>
+                    <div className="singleBoxMyIncome">{income.amount}</div>
+                    <div className="singleBoxMyIncome">{income.date}</div>
                 </div>)
             })}
-            </>)
+            </div>)
             :(<>Nothing here</>)
         }
     </Container>)
