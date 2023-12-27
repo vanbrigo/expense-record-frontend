@@ -30,7 +30,20 @@ export const HomeBalance=()=>{
             .then(
                 result=>{
                     const gastos=result.data.data
-                    setExpenses(gastos)  
+                    if(gastos.length===0){
+                      const dataPie = {
+                        labels: [],
+                        datasets: [
+                          {
+                            data: [],
+                            backgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611','#861159','#861111','#e9ab0e','#5fcaa3','#96ca5f','#f2880f','#6a0ff2','#c50ff2'],
+                            hoverBackgroundColor:['#5d2096','#0000ff24','#008b8b','#ccc91d','#238611','#861159','#861111','#e9ab0e','#5fcaa3','#96ca5f','#f2880f','#6a0ff2','#c50ff2'],
+                          },
+                        ],
+                      };
+                      setDataPieChart(dataPie)
+                    }else {
+                      setExpenses(gastos)  
                     const categoriasGastos = gastos.reduce((acc, expense) => {
                         const categoria = expense.category.name;
                         if (acc[categoria]) {
@@ -59,6 +72,7 @@ export const HomeBalance=()=>{
                         ],
                       };
                       setDataPieChart(dataPie)
+                    } 
                 })
             .catch(error=>console.log(error))
         }
@@ -75,7 +89,34 @@ export const HomeBalance=()=>{
         getAllIncomesByDate(month,year,token)
         .then(result=>{
           const ingresos=result.data.data 
-          setIncomes(ingresos)
+          if(ingresos.length===0){
+            const dataPieIncomes = {
+              labels: [],
+              datasets: [
+                {
+                  data: [],
+                  backgroundColor: [
+                    "#e9ab0e",
+                    "#5fcaa3",
+                    "#96ca5f",
+                    "#f2880f",
+                    "#6a0ff2",
+                    "#c50ff2",
+                  ],
+                  hoverBackgroundColor: [
+                    "#e9ab0e",
+                    "#5fcaa3",
+                    "#96ca5f",
+                    "#f2880f",
+                    "#6a0ff2",
+                    "#c50ff2",
+                  ],
+                },
+              ],
+            };
+            setDataPieChartIncomes(dataPieIncomes);
+          } else{
+            setIncomes(ingresos)
           const categoriasIngresos= ingresos.reduce((acc, income) => {
             const categoria = income.category.name;
                         if (acc[categoria]) {
@@ -104,6 +145,8 @@ export const HomeBalance=()=>{
                         ],
                       };
                       setDataPieChartIncomes(dataPieIncomes)
+          }
+          
         })
         .catch(error=>console.log(error))
       }
