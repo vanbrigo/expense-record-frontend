@@ -24,14 +24,24 @@ export const AllCategories=()=>{
         deleteCategoryAsSuperAdmin(id,token)
         .then(result=>{
             setMsgDelete(result.data.message)
-            setCategories([])
+            setTimeout(()=>{
+                setCategories([])
+            }, 2000);
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+            console.log(error)
+            if(error.response.data.message==='Cannot delete the category. It is referenced in another table.'){
+                setMsgDelete('Cannot delete the category')
+                setTimeout(()=>{
+                    setMsgDelete('')
+                }, 1500);
+            }
+        })
     }
     return(<Container fluid className='allCategoriesDesign'>
         <span className='viewNameSuperAdmin'>CATEGORIES</span>
         <HeaderButton path="/new-category" title="Add category" />
-        {/* <div>{msgDelete}</div> */}
+        <div className='msgDeleteCategories'>{msgDelete}</div>
         {categories.length > 0
         ?(<div className='allCategoriesBox'>
         {categories.map(category=>{

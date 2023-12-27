@@ -45,6 +45,15 @@ export const NewCategory=()=>{
         .catch(error=>console.log(error))
     }
     return(<Container fluid className='newCategoryDesign'>
+        <div>
+        <img 
+        className='backIcon'
+        onClick={()=>navigate('/categories')}
+        width="50" 
+        height="50" 
+        src="https://img.icons8.com/ios/50/1A1A1A/circled-left-2.png" 
+        alt="circled-left-2"/>
+        </div>
         <CustomInput
           name={"name"}
           type={"text"}

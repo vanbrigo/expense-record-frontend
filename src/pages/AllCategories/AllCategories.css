@@ -20,6 +20,7 @@
     background-color: rgb(147, 190, 192);
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-top: 2em;
 }
 .categoryBoxSuperAdmin{
     height: 2em;
@@ -41,6 +42,10 @@
     font-size: 2em;
     font-weight: 800;
     padding-bottom: 0.5em;
+}
+.msgDeleteCategories{
+    color:brown;
+    padding: 1em;
 }
 @media (max-width: 767px) {
     .allCategoriesDesign{
