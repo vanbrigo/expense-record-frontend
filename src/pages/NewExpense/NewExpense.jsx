@@ -78,7 +78,6 @@ export const NewExpense=()=>{
         })
         .catch(error=>console.log(error))
     }
-
     return(
     <Container fluid className='newExpenseDesign'>
         <div>

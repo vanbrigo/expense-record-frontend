@@ -91,13 +91,6 @@ export const AllUsers=()=>{
                           changeUserState(user.id, user.is_active)
                         }
                       ></input>
-                      {/* <img 
-                        onClick={()=>deleteUser()}
-                        className='deleteIcon'
-                        width="24" 
-                        height="24" 
-                        src="https://img.icons8.com/material-outlined/24/1A1A1A/waste.png" 
-                        alt="waste"/> */}
                     </div>
                   </div>
                 );

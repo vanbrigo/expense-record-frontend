@@ -82,6 +82,14 @@ export const inactivateUser = async(id,token)=>{
     return await axios.put(`${host}/api/user-inactivate/${id}`,{},{headers:{Authorization:`Bearer ${token}`}})
 }
 
+export const inactivateCategory = async(id,token)=>{
+    return await axios.put(`${host}/api/category-inactivate/${id}`,{},{headers:{Authorization:`Bearer ${token}`}})
+}
+
+export const activateCategory = async(id,token)=>{
+    return await axios.put(`${host}/api/category-activate/${id}`,{},{headers:{Authorization:`Bearer ${token}`}})
+}
+
 export const logUser = async(body)=>{
     return await axios.post(`${host}/api/login`,body)
 }
