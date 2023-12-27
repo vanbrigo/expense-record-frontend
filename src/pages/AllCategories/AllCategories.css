@@ -35,8 +35,13 @@
     display: flex;
     justify-content: flex-start;
 }
+.iconAllCategories{
+    width: 6em;
+}
 .iconDeleteCategory{
-    width: 4em;
+    width: 10em;
+    gap:1em;
+    justify-content: flex-end;
 }
 .viewNameSuperAdmin{
     font-size: 2em;

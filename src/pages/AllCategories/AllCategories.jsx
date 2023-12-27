@@ -63,7 +63,7 @@ export const AllCategories=()=>{
             return(<div className='categoryBoxSuperAdmin' key={category.id}>
                 <div className="boxInsideCategories">{category.name}</div>
                 <div className="boxInsideCategories">{category.type}</div>
-                <div className="boxInsideCategories">
+                <div className="boxInsideCategories iconAllCategories">
                     <img 
                     width="24" 
                     height="24" 
