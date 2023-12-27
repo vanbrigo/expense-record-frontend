@@ -169,7 +169,7 @@ export const NewExpense=()=>{
             }
         </div>
         <div className='descriptionBox'>
-            {msg}
+            <div className='msgNewExpense'>{msg}</div>
             <CustomInput
             name={"description"}
             type={"text"}

@@ -90,6 +90,9 @@
     background-color: rgb(185, 185, 185); 
     border-radius: 0.5em;
 }
+.msgNewExpense{
+    color: brown;
+}
 @media (max-width: 767px) {
     .newExpenseDesign{
         height: 70em;
