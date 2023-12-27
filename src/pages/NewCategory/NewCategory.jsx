@@ -3,8 +3,16 @@ import './NewCategory.css'
 import { useState } from 'react'
 import { CustomInput } from '../../common/CustomInput/CustomInput'
 import { CustomButton } from '../../common/CustomButton/CustomButton'
+import { createCategory } from '../../services/apiCalls'
+import { useSelector } from 'react-redux'
+import { userData } from '../userSlice'
+import { useNavigate } from 'react-router-dom'
 
 export const NewCategory=()=>{
+    const rdxCredentials=useSelector(userData)
+    const token=rdxCredentials.credentials.token
+    const navigate=useNavigate()
+    const [msg, setMsg]=useState('')
     const [categoryDetails,setCategoryDetails]=useState({
         name:'',
         type:'',
@@ -27,14 +35,14 @@ export const NewCategory=()=>{
         // }));
       }
       const saveData=()=>{
-        // updateUserNickname(userProfile,token)
-        // .then(result=>{
-        //     const dataUpdated=result.data
-        //     dataUpdated.token=token
-        //     dispatch(login({ credentials: dataUpdated }))
-        //     setClick(!click)
-        // })
-        // .catch(error=>console.log(error))
+        createCategory(categoryDetails,token)
+        .then(result=>{
+            setMsg(result.data.message)
+                setTimeout(()=>{
+                    navigate('/categories')
+                }, 2000);
+        })
+        .catch(error=>console.log(error))
     }
     return(<Container fluid className='newCategoryDesign'>
         <CustomInput
@@ -65,5 +73,8 @@ export const NewCategory=()=>{
             functionToDo={saveData}
             title={"Save"}
             />
+        {msg==="Category created successfully" && 
+           <div>¡Category created successfully!</div>
+        }
     </Container>)
 }

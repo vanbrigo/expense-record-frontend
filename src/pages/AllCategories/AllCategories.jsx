@@ -30,7 +30,7 @@ export const AllCategories=()=>{
     }
     return(<Container fluid className='allCategoriesDesign'>
         <span className='viewNameSuperAdmin'>CATEGORIES</span>
-        <HeaderButton path="/" title="Add category" />
+        <HeaderButton path="/new-category" title="Add category" />
         {/* <div>{msgDelete}</div> */}
         {categories.length > 0
         ?(<div className='allCategoriesBox'>
