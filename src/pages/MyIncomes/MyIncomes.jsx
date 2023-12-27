@@ -184,7 +184,7 @@ export const MyIncomes=()=>{
                 );
             })}
             </div>)
-            :(<>Nothing here</>)
+            :(<>You have no incomes yet</>)
         }
     </Container>)
 }

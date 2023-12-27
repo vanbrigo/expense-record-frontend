@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './NewExpense.css'
 import { Container } from 'react-bootstrap'
-import { addExpense, getAllExpensesCategories } from '../../services/apiCalls'
+import { addExpense, getAllExpensesCategories, getAllIncomesByDate } from '../../services/apiCalls'
 import { CustomNumberInput } from '../../common/CustomNumberInput/CustomNumberInput'
 import { CustomInput } from '../../common/CustomInput/CustomInput'
 import { validator } from '../../services/validations'
@@ -14,8 +14,12 @@ import { useNavigate } from 'react-router-dom'
 export const NewExpense=()=>{
     const [todayDate,setTodayDate]=useState('')
     const[categories,setCategories]=useState([])
+    const [msg, setMsg]=useState('')
     const rdxCredentials=useSelector(userData)
     const navigate=useNavigate()
+    const date=dayjs()
+    const month=date.month()+1
+    const year=date.year()
     const token=rdxCredentials.credentials.token
     const [click,setClick]=useState()
     const [clickPayMethod,setClickPayMethod]=useState()
@@ -71,10 +75,23 @@ export const NewExpense=()=>{
         }));
       }
     const addExpenseFunction=()=>{
-        addExpense(expenseDetails,token)
+        getAllIncomesByDate(month,year,token)
         .then(result=>{
-            console.log(result)
-            navigate('/home')
+            console.log(result.data.data)
+            const incomes=result.data.data
+            if(incomes.length===0){
+                setMsg('Please add some income first.')
+                setTimeout(()=>{
+                    setMsg('')
+                }, 1500);
+            }else{
+                addExpense(expenseDetails,token)
+                .then(result=>{
+                    console.log(result)
+                    navigate('/home')
+                })
+                .catch(error=>console.log(error))
+            }
         })
         .catch(error=>console.log(error))
     }
@@ -152,6 +169,7 @@ export const NewExpense=()=>{
             }
         </div>
         <div className='descriptionBox'>
+            {msg}
             <CustomInput
             name={"description"}
             type={"text"}

@@ -171,13 +171,6 @@ export const MyExpenses=()=>{
                           />
                         </>
                       )}
-                    {/* <img
-                      width="25"
-                      height="25"
-                      src="https://img.icons8.com/windows/32/1A1A1A/euro-pound-exchange.png"
-                      alt="euro-pound-exchange"
-                    />
-                    {expense.amount} */}
                   </div>
                   <div>
                     <img
@@ -194,7 +187,7 @@ export const MyExpenses=()=>{
             })}
           </div>
         ) : (
-          <>Nothing here</>
+          <>You have no expenses yet</>
         )}
       </Container>
     );
