@@ -10,6 +10,7 @@ export const AllCategories=()=>{
     const [categories, setCategories]=useState([])
     const rdxCredentials=useSelector(userData)
     const token=rdxCredentials.credentials.token
+    const [iconClick, setIconClick]=useState(false)
     const [msgDelete, setMsgDelete]=useState('')
     useEffect(()=>{
         if(categories.length===0){
@@ -54,6 +55,12 @@ export const AllCategories=()=>{
         }
     }
     return(<Container fluid className='allCategoriesDesign'>
+        {iconClick &&
+            <div 
+            className='modalEditIconDesign'
+            onClick={()=>setIconClick(!iconClick)}>
+                <div className='modalEditIconBox'>Vanessa</div>
+            </div>}
         <span className='viewNameSuperAdmin'>CATEGORIES</span>
         <HeaderButton path="/new-category" title="Add category" />
         <div className='msgDeleteCategories'>{msgDelete}</div>
@@ -68,7 +75,9 @@ export const AllCategories=()=>{
                     width="24" 
                     height="24" 
                     src={category.icon_url}
-                    alt="waste"/>
+                    alt="waste"
+                    onClick={()=>setIconClick(!iconClick)}
+                    />
                 </div>
                 <div className="boxInsideCategories iconDeleteCategory">
                     {category.is_active=== 1 ? <>Active</> : <>Inactive</>}
