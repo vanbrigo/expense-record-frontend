@@ -5,10 +5,13 @@ import { useSelector } from 'react-redux'
 import { userData } from '../userSlice'
 import { activateCategory, deleteCategoryAsSuperAdmin, getAllCategories, inactivateCategory } from '../../services/apiCalls'
 import { HeaderButton } from '../../common/HeaderButton/HeaderButton'
+import { CustomButton } from '../../common/CustomButton/CustomButton'
+import { useNavigate } from 'react-router-dom'
 
 export const AllCategories=()=>{
     const [categories, setCategories]=useState([])
     const rdxCredentials=useSelector(userData)
+    const navigate= useNavigate()
     const token=rdxCredentials.credentials.token
     const [iconClick, setIconClick]=useState(false)
     const [msgDelete, setMsgDelete]=useState('')
@@ -59,7 +62,17 @@ export const AllCategories=()=>{
             <div 
             className='modalEditIconDesign'
             onClick={()=>setIconClick(!iconClick)}>
-                <div className='modalEditIconBox'>Vanessa</div>
+                <div className='modalEditIconBox'>Vanessa
+                <div>
+        <img 
+        className='backIcon'
+        onClick={()=>navigate('/categories')}
+        width="50" 
+        height="50" 
+        src="https://img.icons8.com/ios/50/1A1A1A/circled-left-2.png" 
+        alt="circled-left-2"/>
+        </div>
+                </div>
             </div>}
         <span className='viewNameSuperAdmin'>CATEGORIES</span>
         <HeaderButton path="/new-category" title="Add category" />
